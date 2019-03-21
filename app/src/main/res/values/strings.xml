@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">BMI</string>
+
+    <string name="main_img_description">Asterix and Obelix.</string>
+    <string name="mass_label">Mass [kg]</string>
+    <string name="height_label">Height [cm]</string>
+    <string name="calc_button_text">Calculate</string>
+
+    <string name="bmi_category_underweight">Underweight</string>
+    <string name="bmi_category_normal">Normal weight</string>
+    <string name="bmi_category_overweight">Overweight</string>
+    <string name="bmi_category_obese">Obese</string>
+    <string name="bmi_category_extremely_obese">Extremely obese</string>
+
+    <string name="empty_input_error">This field cannot be empty.</string>
+    <string name="zero_input_error">This field cannot be equal to 0.</string>
+
+    <string name="about_me">About me</string>
+    <string name="switch_units">Switch to imperial units</string>
+</resources>
