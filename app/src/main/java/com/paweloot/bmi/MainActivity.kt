@@ -3,7 +3,6 @@ package com.paweloot.bmi
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.app.NavUtils
 import android.view.Menu
 import android.view.MenuItem
 import com.paweloot.bmi.logic.BmiForKgCm
@@ -16,24 +15,24 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        calcBTN.setOnClickListener {
-            bmiResultTV.text = null
-            categoryTV.text = null
+        calculate_button.setOnClickListener {
+            bmi_result_text.text = null
+            bmi_category_text.text = null
 
             if (isInputTextValid()) {
-                val mass: Int = massET.text.toString().toInt()
-                val height: Int = heightET.text.toString().toInt()
+                val mass: Int = mass_input.text.toString().toInt()
+                val height: Int = height_input.text.toString().toInt()
 
                 setBmiResultText(BmiForKgCm(mass, height).calcBmi())
             } else {
-                massET.error = when {
-                    massET.text.isEmpty() -> getString(R.string.empty_input_error)
-                    massET.text.toString().toInt() == 0 -> getString(R.string.zero_input_error)
+                mass_input.error = when {
+                    mass_input.text.isEmpty() -> getString(R.string.empty_input_error)
+                    mass_input.text.toString().toInt() == 0 -> getString(R.string.zero_input_error)
                     else -> null
                 }
-                heightET.error = when {
-                    heightET.text.isEmpty() -> getString(R.string.empty_input_error)
-                    heightET.text.toString().toInt() == 0 -> getString(R.string.zero_input_error)
+                height_input.error = when {
+                    height_input.text.isEmpty() -> getString(R.string.empty_input_error)
+                    height_input.text.toString().toInt() == 0 -> getString(R.string.zero_input_error)
                     else -> null
                 }
             }
@@ -54,7 +53,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
-        outState?.putString("bmiResult", bmiResultTV.text.toString())
+        outState?.putString("bmiResult", bmi_result_text.text.toString())
         super.onSaveInstanceState(outState)
     }
 
@@ -64,41 +63,41 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun isInputTextValid(): Boolean {
-        return !(massET.text.isEmpty() ||
-                massET.text.toString().toInt() == 0 ||
-                heightET.text.isEmpty() ||
-                heightET.text.toString().toInt() == 0)
+        return !(mass_input.text.isEmpty() ||
+                mass_input.text.toString().toInt() == 0 ||
+                height_input.text.isEmpty() ||
+                height_input.text.toString().toInt() == 0)
     }
 
     private fun setBmiResultText(bmi: Double) {
-        bmiResultTV.text = String.format("%.2f", bmi)
+        bmi_result_text.text = String.format("%.2f", bmi)
 
-        val category: String
-        val resultColor: Int
+        val categoryResource: Int
+        val resultColorResource: Int
         when {
             bmi < 18.5 -> {
-                category = getString(R.string.bmi_category_underweight)
-                resultColor = getColor(R.color.colorBmiUnderweight)
+                categoryResource = R.string.bmi_category_underweight
+                resultColorResource = R.color.colorBmiUnderweight
             }
             bmi < 24.9 -> {
-                category = getString(R.string.bmi_category_normal)
-                resultColor = getColor(R.color.colorBmiNormal)
+                categoryResource = R.string.bmi_category_normal
+                resultColorResource = R.color.colorBmiNormal
             }
             bmi < 29.9 -> {
-                category = getString(R.string.bmi_category_overweight)
-                resultColor = getColor(R.color.colorBmiOverweight)
+                categoryResource = R.string.bmi_category_overweight
+                resultColorResource = R.color.colorBmiOverweight
             }
             bmi < 34.9 -> {
-                category = getString(R.string.bmi_category_obese)
-                resultColor = getColor(R.color.colorBmiObese)
+                categoryResource = R.string.bmi_category_obese
+                resultColorResource = R.color.colorBmiObese
             }
             else -> {
-                category = getString(R.string.bmi_category_extremely_obese)
-                resultColor = getColor(R.color.colorBmiExtremelyObese)
+                categoryResource = R.string.bmi_category_extremely_obese
+                resultColorResource = R.color.colorBmiExtremelyObese
             }
         }
 
-        categoryTV.text = category
-        bmiResultTV.setTextColor(resultColor)
+        bmi_category_text.text = getString(categoryResource)
+        bmi_result_text.setTextColor(getColor(resultColorResource))
     }
 }

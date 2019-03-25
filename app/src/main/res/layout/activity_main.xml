@@ -12,7 +12,7 @@
             tools:context=".MainActivity">
         <ImageView
                 android:layout_width="wrap_content"
-                android:id="@+id/mainIV"
+                android:id="@+id/main_image"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_height="250dp" app:layout_constraintEnd_toEndOf="parent"
@@ -21,9 +21,9 @@
                 android:text="@string/mass_label"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:id="@+id/massTV"
+                android:id="@+id/mass_text"
                 android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/mainIV" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/main_image" app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.0"/>
         <EditText
@@ -31,16 +31,16 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
-                android:id="@+id/massET" app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/mass_input" app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/massTV"/>
+                android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/mass_text"/>
         <TextView
                 android:text="@string/height_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/heightTV" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/massET" app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/height_text" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/mass_input" app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintHorizontal_bias="0.0"/>
@@ -49,36 +49,36 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
-                android:id="@+id/heightET" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/heightTV" android:layout_marginStart="8dp"
+                android:id="@+id/height_input" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/height_text" android:layout_marginStart="8dp"
                 app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/bmiResultTV" android:textSize="48sp"
+                android:id="@+id/bmi_result_text" android:textSize="48sp"
                 android:textColor="#000000"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
                 app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/heightET"/>
+                app:layout_constraintTop_toBottomOf="@+id/height_input" android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/calculate_button"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/categoryTV"
+                android:id="@+id/bmi_category_text"
                 android:textAlignment="center"
                 android:textSize="20sp"
                 android:textColor="#000000"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/calcBTN" android:layout_marginEnd="8dp"
+                android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bmiResultTV" app:layout_constraintVertical_bias="0.0"/>
+                app:layout_constraintTop_toBottomOf="@+id/bmi_result_text"/>
         <Button
                 android:text="@string/calc_button_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/calcBTN"
+                android:id="@+id/calculate_button"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="8dp" android:background="@color/colorAccent"
