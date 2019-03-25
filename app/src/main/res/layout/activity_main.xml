@@ -1,84 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MainActivity">
-    <ImageView
-            android:layout_width="wrap_content"
-            android:id="@+id/mainIV"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_height="250dp" app:layout_constraintEnd_toEndOf="parent"
-            android:contentDescription="@string/main_img_description" app:srcCompat="@drawable/asterix_obelix"/>
-    <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
-                                          android:id="@+id/guideline"
-                                          android:orientation="horizontal"
-                                          app:layout_constraintGuide_percent="0.34"/>
-    <TextView
-            android:text="@string/mass_label"
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:id="@+id/massTV"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/mainIV" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.0"/>
-    <EditText
-            android:layout_width="0dp"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:fillViewport="true">
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/massET" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/massTV"/>
-    <TextView
-            android:text="@string/height_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/heightTV" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/massET" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintHorizontal_bias="0.0"/>
-    <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/heightET" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/heightTV" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"/>
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/bmiResultTV" android:textSize="48sp"
-            android:textColor="#000000" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/heightET" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent"/>
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/categoryTV"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:textColor="#000000"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/calcBTN" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bmiResultTV" app:layout_constraintVertical_bias="0.0"/>
-    <Button
-            android:text="@string/calc_button_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/calcBTN" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" android:background="@color/colorAccent"
-            android:textColor="@color/colorButtonText"/>
-</android.support.constraint.ConstraintLayout>
+            tools:context=".MainActivity">
+        <ImageView
+                android:layout_width="wrap_content"
+                android:id="@+id/mainIV"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_height="250dp" app:layout_constraintEnd_toEndOf="parent"
+                android:contentDescription="@string/main_img_description" app:srcCompat="@drawable/asterix_obelix"/>
+        <TextView
+                android:text="@string/mass_label"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:id="@+id/massTV"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/mainIV" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.0"/>
+        <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/massET" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/massTV"/>
+        <TextView
+                android:text="@string/height_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/heightTV" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/massET" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintHorizontal_bias="0.0"/>
+        <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/heightET" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/heightTV" android:layout_marginStart="8dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bmiResultTV" android:textSize="48sp"
+                android:textColor="#000000"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/heightET"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/categoryTV"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/calcBTN" android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bmiResultTV" app:layout_constraintVertical_bias="0.0"/>
+        <Button
+                android:text="@string/calc_button_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/calcBTN"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp" android:background="@color/colorAccent"
+                android:textColor="@color/colorButtonText" android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
