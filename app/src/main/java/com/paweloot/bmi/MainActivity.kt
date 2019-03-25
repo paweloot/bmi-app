@@ -1,7 +1,9 @@
 package com.paweloot.bmi
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.NavUtils
 import android.view.Menu
 import android.view.MenuItem
 import com.paweloot.bmi.logic.BmiForKgCm
@@ -12,6 +14,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         calcBTN.setOnClickListener {
             bmiResultTV.text = null
@@ -44,9 +47,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
-            R.id.about_me -> {
-                finish()
-            }
+            R.id.about_me -> startActivity(Intent(this, AboutActivity::class.java))
         }
 
         return super.onOptionsItemSelected(item)
