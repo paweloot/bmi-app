@@ -45,12 +45,17 @@ class MainActivity : AppCompatActivity() {
         super.onRestoreInstanceState(savedInstanceState)
 
         val bmiResult: Double? = savedInstanceState?.getString("bmiResult")?.toDoubleOrNull()
-        if (bmiResult != null) setBmiResultText(bmiResult)
+        if (bmiResult != null) {
+            setBmiResultText(bmiResult)
+            forward_arrow_button.visibility = View.VISIBLE
+        }
+
+
     }
 
     private fun setForwardArrowButtonOnClickListener() {
         forward_arrow_button.setOnClickListener {
-            val intentInfoActivity: Intent = Intent(this, InfoActivity::class.java)
+            val intentInfoActivity = Intent(this, InfoActivity::class.java)
             intentInfoActivity.putExtra("bmiResult", bmi_result_text.text)
             intentInfoActivity.putExtra("bmiCategory", bmi_category_text.text)
             intentInfoActivity.putExtra("bmiCategoryColor", bmi_result_text.currentTextColor)
