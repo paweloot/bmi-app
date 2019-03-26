@@ -59,7 +59,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
         super.onRestoreInstanceState(savedInstanceState)
-        setBmiResultText(savedInstanceState?.getString("bmiResult")?.toDouble()!!)
+        
+        val bmiResult: Double? = savedInstanceState?.getString("bmiResult")?.toDoubleOrNull()
+        if (bmiResult != null) setBmiResultText(bmiResult)
     }
 
     private fun isInputTextValid(): Boolean {
