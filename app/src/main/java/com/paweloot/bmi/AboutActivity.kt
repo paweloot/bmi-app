@@ -18,7 +18,10 @@ class AboutActivity : AppCompatActivity() {
         showBackArrowOnActionBar()
 
         done_button.setOnClickListener {
-            Toast.makeText(this, "Hello %s".format(name_edit.text.toString()), Toast.LENGTH_SHORT).show()
+            val name = if (name_edit.text.isNotEmpty()) name_edit.text else getString(R.string.mysterious_wanderer)
+            Toast.makeText(this, "Nice to meet you %s".format(name), Toast.LENGTH_SHORT).show()
+
+
         }
     }
 

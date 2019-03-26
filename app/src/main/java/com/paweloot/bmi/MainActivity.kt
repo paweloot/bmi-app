@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
         super.onRestoreInstanceState(savedInstanceState)
-        
+
         val bmiResult: Double? = savedInstanceState?.getString("bmiResult")?.toDoubleOrNull()
         if (bmiResult != null) setBmiResultText(bmiResult)
     }
