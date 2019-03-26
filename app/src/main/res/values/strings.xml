@@ -37,4 +37,5 @@
 
     <string name="hello">Hello </string>
     <string name="mysterious_wanderer">Mysterious Wanderer</string>
+    <string name="forward_arrow_img_description">Forward arrow</string>
 </resources>

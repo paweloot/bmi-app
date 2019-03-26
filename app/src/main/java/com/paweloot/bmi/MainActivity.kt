@@ -14,29 +14,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-        calculate_button.setOnClickListener {
-            bmi_result_text.text = null
-            bmi_category_text.text = null
-
-            if (isInputTextValid()) {
-                val mass: Int = mass_edit.text.toString().toInt()
-                val height: Int = height_edit.text.toString().toInt()
-
-                setBmiResultText(BmiForKgCm(mass, height).calcBmi())
-            } else {
-                mass_edit.error = when {
-                    mass_edit.text.isEmpty() -> getString(R.string.empty_input_error)
-                    mass_edit.text.toString().toInt() == 0 -> getString(R.string.zero_input_error)
-                    else -> null
-                }
-                height_edit.error = when {
-                    height_edit.text.isEmpty() -> getString(R.string.empty_input_error)
-                    height_edit.text.toString().toInt() == 0 -> getString(R.string.zero_input_error)
-                    else -> null
-                }
-            }
-        }
+        setForwardArrowButtonOnClickListener()
+        setCalculateButtonOnClickListener()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -62,6 +41,37 @@ class MainActivity : AppCompatActivity() {
 
         val bmiResult: Double? = savedInstanceState?.getString("bmiResult")?.toDoubleOrNull()
         if (bmiResult != null) setBmiResultText(bmiResult)
+    }
+
+    private fun setForwardArrowButtonOnClickListener() {
+        forward_arrow_button.setOnClickListener {
+            startActivity(Intent(this, InfoActivity::class.java))
+        }
+    }
+
+    private fun setCalculateButtonOnClickListener() {
+        calculate_button.setOnClickListener {
+            bmi_result_text.text = null
+            bmi_category_text.text = null
+
+            if (isInputTextValid()) {
+                val mass: Int = mass_edit.text.toString().toInt()
+                val height: Int = height_edit.text.toString().toInt()
+
+                setBmiResultText(BmiForKgCm(mass, height).calcBmi())
+            } else {
+                mass_edit.error = when {
+                    mass_edit.text.isEmpty() -> getString(R.string.empty_input_error)
+                    mass_edit.text.toString().toInt() == 0 -> getString(R.string.zero_input_error)
+                    else -> null
+                }
+                height_edit.error = when {
+                    height_edit.text.isEmpty() -> getString(R.string.empty_input_error)
+                    height_edit.text.toString().toInt() == 0 -> getString(R.string.zero_input_error)
+                    else -> null
+                }
+            }
+        }
     }
 
     private fun isInputTextValid(): Boolean {
