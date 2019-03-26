@@ -20,19 +20,19 @@ class MainActivity : AppCompatActivity() {
             bmi_category_text.text = null
 
             if (isInputTextValid()) {
-                val mass: Int = mass_input.text.toString().toInt()
-                val height: Int = height_input.text.toString().toInt()
+                val mass: Int = mass_edit.text.toString().toInt()
+                val height: Int = height_edit.text.toString().toInt()
 
                 setBmiResultText(BmiForKgCm(mass, height).calcBmi())
             } else {
-                mass_input.error = when {
-                    mass_input.text.isEmpty() -> getString(R.string.empty_input_error)
-                    mass_input.text.toString().toInt() == 0 -> getString(R.string.zero_input_error)
+                mass_edit.error = when {
+                    mass_edit.text.isEmpty() -> getString(R.string.empty_input_error)
+                    mass_edit.text.toString().toInt() == 0 -> getString(R.string.zero_input_error)
                     else -> null
                 }
-                height_input.error = when {
-                    height_input.text.isEmpty() -> getString(R.string.empty_input_error)
-                    height_input.text.toString().toInt() == 0 -> getString(R.string.zero_input_error)
+                height_edit.error = when {
+                    height_edit.text.isEmpty() -> getString(R.string.empty_input_error)
+                    height_edit.text.toString().toInt() == 0 -> getString(R.string.zero_input_error)
                     else -> null
                 }
             }
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
-        outState?.putString("bmiResult", bmi_result_text.text.toString())
+        outState?.putString("bmiResult", bmi_result_text?.text.toString())
         super.onSaveInstanceState(outState)
     }
 
@@ -63,10 +63,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun isInputTextValid(): Boolean {
-        return !(mass_input.text.isEmpty() ||
-                mass_input.text.toString().toInt() == 0 ||
-                height_input.text.isEmpty() ||
-                height_input.text.toString().toInt() == 0)
+        return !(mass_edit.text.isEmpty() ||
+                mass_edit.text.toString().toInt() == 0 ||
+                height_edit.text.isEmpty() ||
+                height_edit.text.toString().toInt() == 0)
     }
 
     private fun setBmiResultText(bmi: Double) {

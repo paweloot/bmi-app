@@ -16,7 +16,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_height="250dp" app:layout_constraintEnd_toEndOf="parent"
-                android:contentDescription="@string/main_img_description" app:srcCompat="@drawable/asterix_obelix"/>
+                android:contentDescription="@string/main_img_description" app:srcCompat="@drawable/asterix_obelix"
+        />
         <TextView
                 android:text="@string/mass_label"
                 android:layout_width="wrap_content"
@@ -25,44 +26,46 @@
                 android:layout_marginTop="8dp"
                 app:layout_constraintTop_toBottomOf="@+id/main_image" app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.0"/>
+                android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.0"
+                android:fontFamily="@font/roboto" android:textSize="@dimen/text_size"/>
         <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
-                android:id="@+id/mass_input" app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/mass_edit" app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/mass_text"/>
+                android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/mass_text"
+                android:textSize="@dimen/edit_text_size"/>
         <TextView
                 android:text="@string/height_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/height_text" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/mass_input" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mass_edit" app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp"
-                app:layout_constraintHorizontal_bias="0.0"/>
+                app:layout_constraintHorizontal_bias="0.0" android:textSize="@dimen/text_size"
+                android:fontFamily="@font/roboto"/>
         <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
-                android:id="@+id/height_input" android:layout_marginTop="8dp"
+                android:id="@+id/height_edit" android:layout_marginTop="8dp"
                 app:layout_constraintTop_toBottomOf="@+id/height_text" android:layout_marginStart="8dp"
                 app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintEnd_toEndOf="parent" android:textSize="@dimen/edit_text_size"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/bmi_result_text" android:textSize="48sp"
                 android:textColor="#000000"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
-                app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/height_input" android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/calculate_button"/>
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/height_edit" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginEnd="8dp"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -81,8 +84,10 @@
                 android:id="@+id/calculate_button"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="8dp" android:background="@color/colorAccent"
-                android:textColor="@color/colorButtonText" android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                style="@style/roboto_button" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/bmi_category_text" android:layout_marginBottom="8dp"
+                app:layout_constraintVertical_bias="1.0" android:textSize="@dimen/button_text_size"/>
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
