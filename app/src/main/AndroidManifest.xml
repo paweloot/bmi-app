@@ -19,11 +19,13 @@
         </activity>
 
         <activity android:name=".AboutActivity"
+                  android:windowSoftInputMode="stateHidden"
                   android:parentActivityName=".MainActivity">
 
         </activity>
 
         <activity android:name=".InfoActivity"
+                  android:windowSoftInputMode="stateHidden"
                   android:parentActivityName=".MainActivity">
 
         </activity>
