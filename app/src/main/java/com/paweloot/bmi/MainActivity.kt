@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import com.paweloot.bmi.logic.BmiForKgCm
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -59,15 +60,16 @@ class MainActivity : AppCompatActivity() {
                 val height: Int = height_edit.text.toString().toInt()
 
                 setBmiResultText(BmiForKgCm(mass, height).calcBmi())
+                forward_arrow_button.visibility = View.VISIBLE
             } else {
                 mass_edit.error = when {
-                    mass_edit.text.isEmpty() -> getString(R.string.empty_input_error)
-                    mass_edit.text.toString().toInt() == 0 -> getString(R.string.zero_input_error)
+                    mass_edit.text.isEmpty() -> getString(R.string.bmi_main_empty_input_error)
+                    mass_edit.text.toString().toInt() == 0 -> getString(R.string.bmi_main_zero_input_error)
                     else -> null
                 }
                 height_edit.error = when {
-                    height_edit.text.isEmpty() -> getString(R.string.empty_input_error)
-                    height_edit.text.toString().toInt() == 0 -> getString(R.string.zero_input_error)
+                    height_edit.text.isEmpty() -> getString(R.string.bmi_main_empty_input_error)
+                    height_edit.text.toString().toInt() == 0 -> getString(R.string.bmi_main_zero_input_error)
                     else -> null
                 }
             }
@@ -88,23 +90,23 @@ class MainActivity : AppCompatActivity() {
         val resultColorResource: Int
         when {
             bmi < 18.5 -> {
-                categoryResource = R.string.bmi_category_underweight
+                categoryResource = R.string.bmi_main_underweight
                 resultColorResource = R.color.colorBmiUnderweight
             }
             bmi < 24.9 -> {
-                categoryResource = R.string.bmi_category_normal
+                categoryResource = R.string.bmi_main_normal
                 resultColorResource = R.color.colorBmiNormal
             }
             bmi < 29.9 -> {
-                categoryResource = R.string.bmi_category_overweight
+                categoryResource = R.string.bmi_main_overweight
                 resultColorResource = R.color.colorBmiOverweight
             }
             bmi < 34.9 -> {
-                categoryResource = R.string.bmi_category_obese
+                categoryResource = R.string.bmi_main_obese
                 resultColorResource = R.color.colorBmiObese
             }
             else -> {
-                categoryResource = R.string.bmi_category_extremely_obese
+                categoryResource = R.string.bmi_main_extremely_obese
                 resultColorResource = R.color.colorBmiExtremelyObese
             }
         }

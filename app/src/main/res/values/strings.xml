@@ -1,24 +1,27 @@
 <resources>
     <string name="app_name">BMI</string>
 
-    <string name="main_img_description">Asterix and Obelix.</string>
-    <string name="mass_label">Mass [kg]</string>
-    <string name="height_label">Height [cm]</string>
-    <string name="calc_button_text">Calculate</string>
+    <!--  Main Activity  -->
+    <string name="bmi_main_img_description">Asterix and Obelix.</string>
+    <string name="bmi_main_mass_kg">Mass [kg]</string>
+    <string name="bmi_main_height_cm">Height [cm]</string>
+    <string name="bmi_main_calculate">Calculate</string>
 
-    <string name="bmi_category_underweight">Underweight</string>
-    <string name="bmi_category_normal">Normal weight</string>
-    <string name="bmi_category_overweight">Overweight</string>
-    <string name="bmi_category_obese">Obese</string>
-    <string name="bmi_category_extremely_obese">Extremely obese</string>
+    <string name="bmi_main_underweight">Underweight</string>
+    <string name="bmi_main_normal">Normal weight</string>
+    <string name="bmi_main_overweight">Overweight</string>
+    <string name="bmi_main_obese">Obese</string>
+    <string name="bmi_main_extremely_obese">Extremely obese</string>
 
-    <string name="empty_input_error">This field cannot be empty.</string>
-    <string name="zero_input_error">This field cannot be equal to 0.</string>
+    <string name="bmi_main_empty_input_error">This field cannot be empty.</string>
+    <string name="bmi_main_zero_input_error">This field cannot be equal to 0.</string>
 
-    <string name="about_me">About me</string>
-    <string name="switch_units">Switch to imperial units</string>
-    <string name="paul_img_description">Myself</string>
-    <string name="bio">
+    <!--    About Activity-->
+    <string name="bmi_about_action_bar_title">About me</string>
+    <string name="bmi_about_about_me">About me</string>
+    <string name="bmi_about_switch_units">Switch to imperial units</string>
+    <string name="bmi_about_paul_img_description">Myself</string>
+    <string name="bmi_about_bio">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
@@ -31,11 +34,15 @@
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat.
     </string>
-    <string name="hello_header">Hello!\nI\'m Paul, what\'s your name?</string>
-    <string name="enter_name_hint">Enter your name</string>
-    <string name="done">DONE</string>
+    <string name="bmi_about_hello_header">Hello!\nI\'m Paul, what\'s your name?</string>
+    <string name="bmi_about_enter_name_hint">Enter your name</string>
+    <string name="bmi_about_done">DONE</string>
 
-    <string name="hello">Hello </string>
-    <string name="mysterious_wanderer">Mysterious Wanderer</string>
-    <string name="forward_arrow_img_description">Forward arrow</string>
+    <string name="bmi_about_hello">Hello </string>
+    <string name="bmi_about_mysterious_wanderer">Mysterious Wanderer</string>
+    <string name="bmi_about_forward_arrow_img_description">Forward arrow</string>
+
+    <!--    Info Activity-->
+    <string name="bmi_info_action_bar_title">Info</string>
+
 </resources>
