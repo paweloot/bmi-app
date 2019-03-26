@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
-        outState?.putString("bmiResult", bmi_result_text?.text.toString())
+        outState?.putString("bmiResult", bmi_result_text.text.toString())
         super.onSaveInstanceState(outState)
     }
 
@@ -46,7 +46,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun setForwardArrowButtonOnClickListener() {
         forward_arrow_button.setOnClickListener {
-            startActivity(Intent(this, InfoActivity::class.java))
+            val intentInfoActivity: Intent = Intent(this, InfoActivity::class.java)
+            intentInfoActivity.putExtra("bmiResult", bmi_result_text.text)
+            intentInfoActivity.putExtra("bmiCategory", bmi_category_text.text)
+            intentInfoActivity.putExtra("bmiCategoryColor", bmi_result_text.currentTextColor)
+
+            startActivity(intentInfoActivity)
         }
     }
 

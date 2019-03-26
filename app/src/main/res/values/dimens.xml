@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="text_size">14sp</dimen>
     <dimen name="line_spacing_extra">4sp</dimen>
-    <dimen name="header_text_size">22sp</dimen>
-    <dimen name="button_text_size">14sp</dimen>
     <dimen name="layout_margin">8dp</dimen>
     <dimen name="edit_text_size">18sp</dimen>
     <dimen name="layout_padding">8dp</dimen>
     <dimen name="forward_button_size">40dp</dimen>
     <dimen name="bmi_category_text_size">20sp</dimen>
     <dimen name="bmi_result_text_size">48sp</dimen>
+
+    <!-- Default layout margins  -->
+    <dimen name="bmi_layout_margin_top">8dp</dimen>
+    <dimen name="bmi_layout_margin_bottom">8dp</dimen>
+    <dimen name="bmi_layout_margin_start_end">8dp</dimen>
+
+    <dimen name="bmi_layout_padding_top">8dp</dimen>
+    <dimen name="bmi_layout_padding_bottom">8dp</dimen>
+
+    <!-- Text dimens -->
+    <dimen name="bmi_default_text_size">14sp</dimen>
+    <dimen name="bmi_header_text_size">22sp</dimen>
+    <dimen name="bmi_button_text_size">14sp</dimen>
+    <dimen name="bmi_text_padding">8dp</dimen>
 </resources>

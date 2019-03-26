@@ -26,11 +26,13 @@
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
         pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+        dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
         pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+        dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat.
     </string>
@@ -38,11 +40,19 @@
     <string name="bmi_about_enter_name_hint">Enter your name</string>
     <string name="bmi_about_done">DONE</string>
 
-    <string name="bmi_about_hello">Hello </string>
+    <string name="bmi_about_hello">Hello</string>
     <string name="bmi_about_mysterious_wanderer">Mysterious Wanderer</string>
     <string name="bmi_about_forward_arrow_img_description">Forward arrow</string>
 
     <!--    Info Activity-->
     <string name="bmi_info_action_bar_title">Info</string>
+    <string name="bmi_info_category_img_description">BMI category image</string>
+    <string name="bmi_info_basic_info">
+        BMI (Body Mass Index) is a value derived from the mass
+        (weight) and height of an individual.\n\n
+        The BMI is defined as the body mass divided by the square of the body
+        height, and is universally expressed in units of kg/m2, resulting from mass in kilograms and height in metres.
+    </string>
+    <string name="bmi_info_category_description">Normal</string>
 
 </resources>
