@@ -1,10 +1,13 @@
 package com.paweloot.bmi
 
-import android.media.Image
 import android.os.Bundle
 import android.support.v4.app.NavUtils
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import com.paweloot.bmi.BmiConstants.BMI_NORMAL_UPPER_BOUND
+import com.paweloot.bmi.BmiConstants.BMI_OBESE_UPPER_BOUND
+import com.paweloot.bmi.BmiConstants.BMI_OVERWEIGHT_UPPER_BOUND
+import com.paweloot.bmi.BmiConstants.BMI_UNDERWEIGHT_UPPER_BOUND
 import kotlinx.android.synthetic.main.activity_info.*
 
 class InfoActivity : AppCompatActivity() {
@@ -42,10 +45,10 @@ class InfoActivity : AppCompatActivity() {
 
     private fun setCategoryImage(bmi: Double) {
         val categoryImage: Int = when {
-            bmi < 18.5 -> R.drawable.bmi_underweight
-            bmi < 24.9 -> R.drawable.bmi_normal
-            bmi < 29.9 -> R.drawable.bmi_overweight
-            bmi < 34.9 -> R.drawable.bmi_obese
+            bmi < BMI_UNDERWEIGHT_UPPER_BOUND -> R.drawable.bmi_underweight
+            bmi < BMI_NORMAL_UPPER_BOUND -> R.drawable.bmi_normal
+            bmi < BMI_OVERWEIGHT_UPPER_BOUND -> R.drawable.bmi_overweight
+            bmi < BMI_OBESE_UPPER_BOUND -> R.drawable.bmi_obese
             else -> R.drawable.bmi_extremely_obese
         }
 

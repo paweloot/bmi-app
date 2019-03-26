@@ -1,11 +1,15 @@
 package com.paweloot.bmi
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import com.paweloot.bmi.BmiConstants.BMI_NORMAL_UPPER_BOUND
+import com.paweloot.bmi.BmiConstants.BMI_OBESE_UPPER_BOUND
+import com.paweloot.bmi.BmiConstants.BMI_OVERWEIGHT_UPPER_BOUND
+import com.paweloot.bmi.BmiConstants.BMI_UNDERWEIGHT_UPPER_BOUND
 import com.paweloot.bmi.logic.BmiForKgCm
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -94,19 +98,19 @@ class MainActivity : AppCompatActivity() {
         val categoryResource: Int
         val resultColorResource: Int
         when {
-            bmi < 18.5 -> {
+            bmi < BMI_UNDERWEIGHT_UPPER_BOUND -> {
                 categoryResource = R.string.bmi_main_underweight
                 resultColorResource = R.color.colorBmiUnderweight
             }
-            bmi < 24.9 -> {
+            bmi < BMI_NORMAL_UPPER_BOUND -> {
                 categoryResource = R.string.bmi_main_normal
                 resultColorResource = R.color.colorBmiNormal
             }
-            bmi < 29.9 -> {
+            bmi < BMI_OVERWEIGHT_UPPER_BOUND -> {
                 categoryResource = R.string.bmi_main_overweight
                 resultColorResource = R.color.colorBmiOverweight
             }
-            bmi < 34.9 -> {
+            bmi < BMI_OBESE_UPPER_BOUND -> {
                 categoryResource = R.string.bmi_main_obese
                 resultColorResource = R.color.colorBmiObese
             }
