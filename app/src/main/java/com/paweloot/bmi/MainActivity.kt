@@ -34,12 +34,15 @@ class MainActivity : AppCompatActivity() {
         val imperialUnitsMenuItem: MenuItem? = menu?.findItem(R.id.switch_to_imperial_units)
         val metricUnitsMenuItem: MenuItem? = menu?.findItem(R.id.switch_to_metric_units)
 
-        if (currentUnits == METRIC_UNITS) {
-            imperialUnitsMenuItem?.isVisible = true
-            metricUnitsMenuItem?.isVisible = false
-        } else {
-            imperialUnitsMenuItem?.isVisible = false
-            metricUnitsMenuItem?.isVisible = true
+        when (currentUnits) {
+            METRIC_UNITS -> {
+                imperialUnitsMenuItem?.isVisible = true
+                metricUnitsMenuItem?.isVisible = false
+            }
+            IMPERIAL_UNITS -> {
+                imperialUnitsMenuItem?.isVisible = false
+                metricUnitsMenuItem?.isVisible = true
+            }
         }
 
         return super.onCreateOptionsMenu(menu)
@@ -68,6 +71,8 @@ class MainActivity : AppCompatActivity() {
         height_in_edit.visibility = View.VISIBLE
         height_in_text.visibility = View.VISIBLE
         height_text.text = getString(R.string.bmi_main_height_ft)
+
+        clearScreen()
     }
 
     private fun switchToMetricUnits() {
@@ -77,6 +82,19 @@ class MainActivity : AppCompatActivity() {
         height_in_text.visibility = View.GONE
         height_in_edit.visibility = View.GONE
         height_text.text = getString(R.string.bmi_main_height_cm)
+
+        clearScreen()
+    }
+
+    private fun clearScreen() {
+        mass_edit.text = null
+        height_edit.text = null
+        height_in_edit.text = null
+
+        bmi_result_text.text = null
+        bmi_category_text.text = null
+
+        forward_arrow_button.visibility = View.GONE
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
@@ -116,10 +134,9 @@ class MainActivity : AppCompatActivity() {
             bmi_category_text.text = null
             forward_arrow_button.visibility = View.GONE
 
-            if (currentUnits == METRIC_UNITS) {
-                calculateBmiForMetricUnits()
-            } else if (currentUnits == IMPERIAL_UNITS) {
-                calculateBmiForImperialUnits()
+            when (currentUnits) {
+                METRIC_UNITS -> calculateBmiForMetricUnits()
+                IMPERIAL_UNITS -> calculateBmiForImperialUnits()
             }
         }
     }

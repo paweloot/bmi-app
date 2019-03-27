@@ -21,7 +21,7 @@
 
     <!--  Menu  -->
     <string name="bmi_menu_switch_to_imperial_units">Switch to imperial units</string>
-    <string name="bmi_menu_switch_to_metric_units">Switch to metric untis</string>
+    <string name="bmi_menu_switch_to_metric_units">Switch to metric units</string>
 
     <!--    About Activity-->
     <string name="bmi_about_action_bar_title">About me</string>

@@ -15,3 +15,7 @@ c
 3app/src/main/java/com/paweloot/bmi/AboutActivity.kt,d\d\ddefd536a2f2252b9ce2dc018546bbc4052fe346
 b
 2app/src/main/java/com/paweloot/bmi/BmiConstants.kt,b\5\b5b9ff629518b209525bbdd02501215fbf210917
+_
+/app/src/main/java/com/paweloot/bmi/logic/Bmi.kt,9\1\91990282968124195788b585a0fd8083a7a33bd5
+h
+8app/src/main/java/com/paweloot/bmi/logic/BmiForLbFtIn.kt,0\5\05984ac53c3457e41c6b84a9f73e22cdcbf4dcaa

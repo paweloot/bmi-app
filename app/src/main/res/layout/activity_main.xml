@@ -9,15 +9,20 @@
     <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:context=".MainActivity" android:layout_marginStart="@dimen/bmi_layout_margin_start_end"
-            android:layout_marginEnd="@dimen/bmi_layout_margin_start_end">
+            android:layout_marginStart="@dimen/bmi_layout_margin_start_end"
+            android:layout_marginEnd="@dimen/bmi_layout_margin_start_end"
+            tools:context=".MainActivity"
+    >
         <ImageView
                 android:layout_width="wrap_content"
                 android:id="@+id/main_image"
+                android:layout_height="250dp"
+                android:contentDescription="@string/bmi_main_img_description"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_height="250dp" app:layout_constraintEnd_toEndOf="parent"
-                android:contentDescription="@string/bmi_main_img_description" app:srcCompat="@drawable/asterix_obelix"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/asterix_obelix"
+        />
         <TextView
                 android:text="@string/bmi_main_mass_kg"
                 android:layout_width="wrap_content"
