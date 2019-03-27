@@ -4,7 +4,11 @@
     <item android:id="@+id/about_me"
           android:title="@string/bmi_about_about_me"
           app:showAsAction="never"/>
-    <item android:id="@+id/switch_units"
-          android:title="@string/bmi_about_switch_units"
+    <item android:id="@+id/switch_to_imperial_units"
+          android:title="@string/bmi_menu_switch_to_imperial_units"
           app:showAsAction="never"/>
+    <item android:id="@+id/switch_to_metric_units"
+          android:title="@string/bmi_menu_switch_to_metric_units"
+          app:showAsAction="never"
+          android:visible="false"/>
 </menu>

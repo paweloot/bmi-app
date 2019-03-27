@@ -1,5 +1,6 @@
 package com.paweloot.bmi
 
+import android.content.ClipData
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -14,6 +15,10 @@ import com.paweloot.bmi.logic.BmiForKgCm
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    private val METRIC_UNITS = 0
+    private val IMPERIAL_UNITS = 1
+
+    var currentUnits = METRIC_UNITS
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,16 +29,52 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.options_menu, menu)
+        menuInflater.inflate(R.menu.menu_overflow, menu)
+
+        val imperialUnitsMenuItem: MenuItem? = menu?.findItem(R.id.switch_to_imperial_units)
+        val metricUnitsMenuItem: MenuItem? = menu?.findItem(R.id.switch_to_metric_units)
+
+        if (currentUnits == METRIC_UNITS) {
+            imperialUnitsMenuItem?.isVisible = true
+            metricUnitsMenuItem?.isVisible = false
+        } else {
+            imperialUnitsMenuItem?.isVisible = false
+            metricUnitsMenuItem?.isVisible = true
+        }
+
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.about_me -> startActivity(Intent(this, AboutActivity::class.java))
+            R.id.switch_to_imperial_units -> {
+                currentUnits = IMPERIAL_UNITS
+                invalidateOptionsMenu()
+                switchToImperialUnits()
+            }
+            R.id.switch_to_metric_units -> {
+                currentUnits = METRIC_UNITS
+                invalidateOptionsMenu()
+                switchToMetricUnits()
+            }
         }
 
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun switchToImperialUnits() {
+        mass_text.text = getString(R.string.bmi_main_mass_lb)
+        height_in_edit.visibility = View.VISIBLE
+        height_in_text.visibility = View.VISIBLE
+        height_text.text = getString(R.string.bmi_main_height_ft)
+    }
+
+    private fun switchToMetricUnits() {
+        mass_text.text = getString(R.string.bmi_main_mass_kg)
+        height_in_text.visibility = View.GONE
+        height_in_edit.visibility = View.GONE
+        height_text.text = getString(R.string.bmi_main_height_cm)
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
@@ -49,8 +90,6 @@ class MainActivity : AppCompatActivity() {
             setBmiResultText(bmiResult)
             forward_arrow_button.visibility = View.VISIBLE
         }
-
-
     }
 
     private fun setForwardArrowButtonOnClickListener() {

@@ -4,7 +4,10 @@
     <!--  Main Activity  -->
     <string name="bmi_main_img_description">Asterix and Obelix.</string>
     <string name="bmi_main_mass_kg">Mass [kg]</string>
+    <string name="bmi_main_mass_lb">Mass [lb]</string>
     <string name="bmi_main_height_cm">Height [cm]</string>
+    <string name="bmi_main_height_ft">Height [ft]</string>
+    <string name="bmi_main_height_in">Height [in]</string>
     <string name="bmi_main_calculate">Calculate</string>
 
     <string name="bmi_main_underweight">Underweight</string>
@@ -16,10 +19,13 @@
     <string name="bmi_main_empty_input_error">This field cannot be empty.</string>
     <string name="bmi_main_zero_input_error">This field cannot be equal to 0.</string>
 
+    <!--  Menu  -->
+    <string name="bmi_menu_switch_to_imperial_units">Switch to imperial units</string>
+    <string name="bmi_menu_switch_to_metric_units">Switch to metric untis</string>
+
     <!--    About Activity-->
     <string name="bmi_about_action_bar_title">About me</string>
     <string name="bmi_about_about_me">About me</string>
-    <string name="bmi_about_switch_units">Switch to imperial units</string>
     <string name="bmi_about_paul_img_description">Myself</string>
     <string name="bmi_about_bio">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -54,5 +60,7 @@
         height, and is universally expressed in units of kg/m2, resulting from mass in kilograms and height in metres.
     </string>
     <string name="bmi_info_category_description">Normal</string>
+
+
 
 </resources>

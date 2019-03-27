@@ -13,3 +13,5 @@ b
 2app/src/main/java/com/paweloot/bmi/InfoActivity.kt,5\6\5629bfe17c180c7090cab2f01e6be56b3e1134b5
 c
 3app/src/main/java/com/paweloot/bmi/AboutActivity.kt,d\d\ddefd536a2f2252b9ce2dc018546bbc4052fe346
+b
+2app/src/main/java/com/paweloot/bmi/BmiConstants.kt,b\5\b5b9ff629518b209525bbdd02501215fbf210917
