@@ -1,6 +1,5 @@
 package com.paweloot.bmi
 
-import android.content.ClipData
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -12,6 +11,7 @@ import com.paweloot.bmi.BmiConstants.BMI_OBESE_UPPER_BOUND
 import com.paweloot.bmi.BmiConstants.BMI_OVERWEIGHT_UPPER_BOUND
 import com.paweloot.bmi.BmiConstants.BMI_UNDERWEIGHT_UPPER_BOUND
 import com.paweloot.bmi.logic.BmiForKgCm
+import com.paweloot.bmi.logic.BmiForLbFtIn
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -49,14 +49,12 @@ class MainActivity : AppCompatActivity() {
         when (item?.itemId) {
             R.id.about_me -> startActivity(Intent(this, AboutActivity::class.java))
             R.id.switch_to_imperial_units -> {
-                currentUnits = IMPERIAL_UNITS
-                invalidateOptionsMenu()
                 switchToImperialUnits()
+                invalidateOptionsMenu()
             }
             R.id.switch_to_metric_units -> {
-                currentUnits = METRIC_UNITS
-                invalidateOptionsMenu()
                 switchToMetricUnits()
+                invalidateOptionsMenu()
             }
         }
 
@@ -64,6 +62,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun switchToImperialUnits() {
+        currentUnits = IMPERIAL_UNITS
+
         mass_text.text = getString(R.string.bmi_main_mass_lb)
         height_in_edit.visibility = View.VISIBLE
         height_in_text.visibility = View.VISIBLE
@@ -71,6 +71,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun switchToMetricUnits() {
+        currentUnits = METRIC_UNITS
+
         mass_text.text = getString(R.string.bmi_main_mass_kg)
         height_in_text.visibility = View.GONE
         height_in_edit.visibility = View.GONE
@@ -79,6 +81,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSaveInstanceState(outState: Bundle?) {
         outState?.putString("bmiResult", bmi_result_text.text.toString())
+        outState?.putInt("currentUnits", currentUnits)
         super.onSaveInstanceState(outState)
     }
 
@@ -90,6 +93,10 @@ class MainActivity : AppCompatActivity() {
             setBmiResultText(bmiResult)
             forward_arrow_button.visibility = View.VISIBLE
         }
+
+        val currentUnitsRestored: Int? = savedInstanceState?.getInt("currentUnits")
+        if (currentUnitsRestored != null) currentUnits = currentUnitsRestored
+        if (currentUnits == IMPERIAL_UNITS) switchToImperialUnits()
     }
 
     private fun setForwardArrowButtonOnClickListener() {
@@ -107,29 +114,53 @@ class MainActivity : AppCompatActivity() {
         calculate_button.setOnClickListener {
             bmi_result_text.text = null
             bmi_category_text.text = null
+            forward_arrow_button.visibility = View.GONE
 
-            if (isInputTextValid()) {
-                val mass: Int = mass_edit.text.toString().toInt()
-                val height: Int = height_edit.text.toString().toInt()
-
-                setBmiResultText(BmiForKgCm(mass, height).calcBmi())
-                forward_arrow_button.visibility = View.VISIBLE
-            } else {
-                mass_edit.error = when {
-                    mass_edit.text.isEmpty() -> getString(R.string.bmi_main_empty_input_error)
-                    mass_edit.text.toString().toInt() == 0 -> getString(R.string.bmi_main_zero_input_error)
-                    else -> null
-                }
-                height_edit.error = when {
-                    height_edit.text.isEmpty() -> getString(R.string.bmi_main_empty_input_error)
-                    height_edit.text.toString().toInt() == 0 -> getString(R.string.bmi_main_zero_input_error)
-                    else -> null
-                }
+            if (currentUnits == METRIC_UNITS) {
+                calculateBmiForMetricUnits()
+            } else if (currentUnits == IMPERIAL_UNITS) {
+                calculateBmiForImperialUnits()
             }
         }
     }
 
-    private fun isInputTextValid(): Boolean {
+    private fun calculateBmiForMetricUnits() {
+        if (isInputValid()) {
+            val mass: Int = mass_edit.text.toString().toInt()
+            val height: Int = height_edit.text.toString().toInt()
+
+            setBmiResultText(BmiForKgCm(mass, height).calcBmi())
+            forward_arrow_button.visibility = View.VISIBLE
+        } else displayErrorOnEditText()
+    }
+
+    private fun calculateBmiForImperialUnits() {
+        if (isInputValid()) {
+            val mass: Int = mass_edit.text.toString().toInt()
+            val heightFt: Int = height_edit.text.toString().toInt()
+
+            var heightIn: Int? = height_in_edit.text.toString().toIntOrNull()
+            heightIn = heightIn ?: 0
+
+            setBmiResultText(BmiForLbFtIn(mass, heightFt, heightIn).calcBmi())
+            forward_arrow_button.visibility = View.VISIBLE
+        } else displayErrorOnEditText()
+    }
+
+    private fun displayErrorOnEditText() {
+        mass_edit.error = when {
+            mass_edit.text.isEmpty() -> getString(R.string.bmi_main_empty_input_error)
+            mass_edit.text.toString().toInt() == 0 -> getString(R.string.bmi_main_zero_input_error)
+            else -> null
+        }
+        height_edit.error = when {
+            height_edit.text.isEmpty() -> getString(R.string.bmi_main_empty_input_error)
+            height_edit.text.toString().toInt() == 0 -> getString(R.string.bmi_main_zero_input_error)
+            else -> null
+        }
+    }
+
+    private fun isInputValid(): Boolean {
         return !(mass_edit.text.isEmpty() ||
                 mass_edit.text.toString().toInt() == 0 ||
                 height_edit.text.isEmpty() ||
