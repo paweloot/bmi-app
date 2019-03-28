@@ -4,11 +4,15 @@
     <color name="colorPrimaryDark">#00866e</color>
     <color name="colorAccent">#b21221</color>
 
-    <color name="colorButtonText">#F5F5F5</color>
+    <color name="bmi_underweight">#26619C</color>
+    <color name="bmi_normal">#00A693</color>
+    <color name="bmi_overweight">#FF7120</color>
+    <color name="bmi_obese">#B80000</color>
+    <color name="bmi_extremely_obese">#C4008E</color>
 
-    <color name="colorBmiUnderweight">#26619C</color>
-    <color name="colorBmiNormal">#00A693</color>
-    <color name="colorBmiOverweight">#FF7120</color>
-    <color name="colorBmiObese">#B80000</color>
-    <color name="colorBmiExtremelyObese">#C4008E</color>
+    <!-- Grayscale -->
+    <color name="white">#ffffff</color>
+    <color name="light_gray">#eeeeee</color>
+    <color name="dark_gray">#424242</color>
+    <color name="black">#000000</color>
 </resources>

@@ -23,7 +23,8 @@
 <!--    <dimen name="bmi_text_padding">8dp</dimen>-->
 
     <!-- Font sizes -->
-    <dimen name="bmi_font_huge">28sp</dimen>
+    <dimen name="bmi_font_huge">48sp</dimen>
+    <dimen name="bmi_font_larger">28sp</dimen>
     <dimen name="bmi_font_large">18sp</dimen>
     <dimen name="bmi_font_normal">14sp</dimen>
     <dimen name="bmi_font_small">12sp</dimen>
@@ -37,6 +38,6 @@
     <dimen name="bmi_main_img_height">250dp</dimen>
     
     <!-- Circular button size -->
-    <dimen name="bmi_circular_button_normal">48dp</dimen>
+    <dimen name="bmi_circular_button_normal">54dp</dimen>
 
 </resources>

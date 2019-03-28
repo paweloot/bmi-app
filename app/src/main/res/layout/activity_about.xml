@@ -1,47 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+>
 
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/bmi_layout_margin_start_end"
-            android:layout_marginEnd="@dimen/bmi_layout_margin_start_end"
-            android:paddingBottom="@dimen/bmi_layout_padding_bottom" android:paddingTop="@dimen/bmi_layout_padding_top">
+            android:layout_marginStart="@dimen/bmi_spacing_small"
+            android:layout_marginEnd="@dimen/bmi_spacing_small"
+            android:paddingBottom="@dimen/bmi_spacing_small"
+            android:paddingTop="@dimen/bmi_spacing_small">
         <ImageView
+                android:id="@+id/paul_image"
                 android:layout_width="match_parent"
-                android:layout_height="200dp" app:srcCompat="@drawable/paul" android:id="@+id/paul_image"
-                android:contentDescription="@string/bmi_about_paul_img_description"/>
+                android:layout_height="200dp"
+                android:contentDescription="@string/bmi_about_paul_img_description"
+                app:srcCompat="@drawable/paul"
+        />
         <TextView
-                android:text="@string/bmi_about_hello_header"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/header_text"
-                android:textAlignment="center" android:textSize="@dimen/bmi_header_text_size"
-                android:fontFamily="@font/roboto_medium" android:layout_marginTop="@dimen/layout_margin"/>
-        <EditText
+                android:id="@+id/header_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/bmi_spacing_small"
+                android:textAlignment="center"
+                android:text="@string/bmi_about_hello_header"
+                style="@style/HeaderText"
+        />
+        <EditText
+                android:id="@+id/name_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/bmi_spacing_small"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/name_edit" android:hint="@string/bmi_about_enter_name_hint"
-                style="@style/Widget.AppCompat.EditText" android:fontFamily="@font/roboto"
-                android:layout_marginTop="@dimen/layout_margin"
-                android:textSize="@dimen/edit_text_size"/>
+                android:hint="@string/bmi_about_enter_name_hint"
+                android:textSize="@dimen/bmi_font_large"
+        />
         <Button
+                android:id="@+id/done_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/bmi_spacing_small"
                 android:text="@string/bmi_about_done"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/done_button"
-                android:fontFamily="@font/roboto_medium"
-                android:textSize="@dimen/bmi_button_text_size" android:background="@color/colorAccent"
-                style="@style/roboto_button" android:layout_marginTop="@dimen/layout_margin"/>
+                style="@style/Button"
+        />
         <TextView
-                android:text="@string/bmi_about_bio"
+                android:id="@+id/bio_text"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/bio_text" android:textSize="@dimen/bmi_default_text_size"
-                android:lineSpacingExtra="@dimen/line_spacing_extra" android:fontFamily="@font/roboto"
-                android:layout_marginTop="@dimen/layout_margin"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/bmi_spacing_small"
+                android:text="@string/bmi_about_bio"
+                style="@style/ContentText"
+        />
     </LinearLayout>
 </ScrollView>

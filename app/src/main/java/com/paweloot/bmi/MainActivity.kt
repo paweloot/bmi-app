@@ -10,15 +10,14 @@ import com.paweloot.bmi.BmiConstants.BMI_NORMAL_UPPER_BOUND
 import com.paweloot.bmi.BmiConstants.BMI_OBESE_UPPER_BOUND
 import com.paweloot.bmi.BmiConstants.BMI_OVERWEIGHT_UPPER_BOUND
 import com.paweloot.bmi.BmiConstants.BMI_UNDERWEIGHT_UPPER_BOUND
+import com.paweloot.bmi.BmiConstants.IMPERIAL_UNITS
+import com.paweloot.bmi.BmiConstants.METRIC_UNITS
 import com.paweloot.bmi.logic.BmiForKgCm
 import com.paweloot.bmi.logic.BmiForLbFtIn
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    private val METRIC_UNITS = 0
-    private val IMPERIAL_UNITS = 1
-
-    var currentUnits = METRIC_UNITS
+    private var currentUnits = METRIC_UNITS
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -192,23 +191,23 @@ class MainActivity : AppCompatActivity() {
         when {
             bmi < BMI_UNDERWEIGHT_UPPER_BOUND -> {
                 categoryResource = R.string.bmi_main_underweight
-                resultColorResource = R.color.colorBmiUnderweight
+                resultColorResource = R.color.bmi_underweight
             }
             bmi < BMI_NORMAL_UPPER_BOUND -> {
                 categoryResource = R.string.bmi_main_normal
-                resultColorResource = R.color.colorBmiNormal
+                resultColorResource = R.color.bmi_normal
             }
             bmi < BMI_OVERWEIGHT_UPPER_BOUND -> {
                 categoryResource = R.string.bmi_main_overweight
-                resultColorResource = R.color.colorBmiOverweight
+                resultColorResource = R.color.bmi_overweight
             }
             bmi < BMI_OBESE_UPPER_BOUND -> {
                 categoryResource = R.string.bmi_main_obese
-                resultColorResource = R.color.colorBmiObese
+                resultColorResource = R.color.bmi_obese
             }
             else -> {
                 categoryResource = R.string.bmi_main_extremely_obese
-                resultColorResource = R.color.colorBmiExtremelyObese
+                resultColorResource = R.color.bmi_extremely_obese
             }
         }
 
