@@ -11,7 +11,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/bmi_spacing_small"
             android:layout_marginEnd="@dimen/bmi_spacing_small"
-            tools:context=".MainActivity"
+            tools:context=".main.MainActivity"
     >
         <ImageView
                 android:id="@+id/main_image"
@@ -150,7 +150,7 @@
                 style="@style/Button"
         />
         <ImageButton
-                android:id="@+id/forward_arrow_button"
+                android:id="@+id/info_button"
                 android:layout_width="@dimen/bmi_circular_button_normal"
                 android:layout_height="@dimen/bmi_circular_button_normal"
                 android:layout_marginTop="@dimen/bmi_spacing_small"
@@ -158,7 +158,7 @@
                 android:layout_marginStart="@dimen/bmi_spacing_small"
                 android:scaleType="fitCenter"
                 android:background="@drawable/circular_button_background"
-                android:contentDescription="@string/bmi_about_forward_arrow_img_description"
+                android:contentDescription="@string/bmi_about_info_button_img_description"
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@drawable/ic_arrow_forward"

@@ -1,6 +1,6 @@
 package com.paweloot.bmi
 
-import com.paweloot.bmi.logic.BmiForKgCm
+import com.paweloot.bmi.main.logic.BmiForKgCm
 import org.junit.Test
 
 import org.junit.Assert.*

@@ -9,7 +9,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme" tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity"
+        <activity android:name=".main.MainActivity"
                   android:windowSoftInputMode="stateHidden">
 
             <intent-filter>
@@ -18,15 +18,15 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".AboutActivity"
+        <activity android:name=".about.AboutActivity"
                   android:windowSoftInputMode="stateHidden"
-                  android:parentActivityName=".MainActivity">
+                  android:parentActivityName=".main.MainActivity">
 
         </activity>
 
-        <activity android:name=".InfoActivity"
+        <activity android:name=".info.InfoActivity"
                   android:windowSoftInputMode="stateHidden"
-                  android:parentActivityName=".MainActivity">
+                  android:parentActivityName=".main.MainActivity">
 
         </activity>
     </application>

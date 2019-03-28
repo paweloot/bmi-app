@@ -1,13 +1,14 @@
-package com.paweloot.bmi
+package com.paweloot.bmi.info
 
 import android.os.Bundle
 import android.support.v4.app.NavUtils
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
-import com.paweloot.bmi.BmiConstants.BMI_NORMAL_UPPER_BOUND
-import com.paweloot.bmi.BmiConstants.BMI_OBESE_UPPER_BOUND
-import com.paweloot.bmi.BmiConstants.BMI_OVERWEIGHT_UPPER_BOUND
-import com.paweloot.bmi.BmiConstants.BMI_UNDERWEIGHT_UPPER_BOUND
+import com.paweloot.bmi.R
+import com.paweloot.bmi.main.BmiConstants.BMI_NORMAL_UPPER_BOUND
+import com.paweloot.bmi.main.BmiConstants.BMI_OBESE_UPPER_BOUND
+import com.paweloot.bmi.main.BmiConstants.BMI_OVERWEIGHT_UPPER_BOUND
+import com.paweloot.bmi.main.BmiConstants.BMI_UNDERWEIGHT_UPPER_BOUND
 import kotlinx.android.synthetic.main.activity_info.*
 
 class InfoActivity : AppCompatActivity() {

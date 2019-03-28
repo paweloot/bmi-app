@@ -1,10 +1,11 @@
-package com.paweloot.bmi
+package com.paweloot.bmi.about
 
 import android.os.Bundle
 import android.support.v4.app.NavUtils
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import android.widget.Toast
+import com.paweloot.bmi.R
 import kotlinx.android.synthetic.main.activity_about.*
 
 class AboutActivity : AppCompatActivity() {

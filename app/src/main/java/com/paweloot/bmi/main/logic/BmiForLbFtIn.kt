@@ -1,4 +1,4 @@
-package com.paweloot.bmi.logic
+package com.paweloot.bmi.main.logic
 
 class BmiForLbFtIn(var mass: Int, var heightFt: Int, var heightIn: Int): Bmi {
     override fun calcBmi(): Double {
