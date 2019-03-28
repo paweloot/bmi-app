@@ -17,7 +17,7 @@ class MainPresenter(var view: MainContract.View) : MainContract.Presenter {
             view.displayBmiResult(bmiResult)
         } else {
             view.clearResult()
-            view.displayErrorOnEditText()
+                view.displayErrorOnEditText()
         }
     }
 

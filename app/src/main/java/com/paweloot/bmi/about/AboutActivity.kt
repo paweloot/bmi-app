@@ -8,7 +8,8 @@ import android.widget.Toast
 import com.paweloot.bmi.R
 import kotlinx.android.synthetic.main.activity_about.*
 
-class AboutActivity : AppCompatActivity() {
+class AboutActivity : AppCompatActivity(), AboutContract.View {
+    private lateinit var presenter: AboutPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,12 +17,9 @@ class AboutActivity : AppCompatActivity() {
 
         setUpActionBar()
 
-        done_button.setOnClickListener {
-            val name = if (name_edit.text.isNotEmpty()) name_edit.text else getString(R.string.bmi_about_mysterious_wanderer)
-            Toast.makeText(this, "Nice to meet you %s".format(name), Toast.LENGTH_SHORT).show()
+        presenter = AboutPresenter(this)
 
-
-        }
+        done_button.setOnClickListener { presenter.onDoneButtonClick() }
     }
 
     private fun setUpActionBar() {
@@ -37,5 +35,9 @@ class AboutActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-
+    override fun displayWelcomeToast() {
+        val name =
+            if (name_edit.text.isNotEmpty()) name_edit.text else getString(R.string.bmi_about_mysterious_wanderer)
+        Toast.makeText(this, "Nice to meet you %s".format(name), Toast.LENGTH_SHORT).show()
+    }
 }
