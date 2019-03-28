@@ -16,11 +16,6 @@ import com.paweloot.bmi.main.BmiConstants.IMPERIAL_UNITS
 import com.paweloot.bmi.main.BmiConstants.METRIC_UNITS
 import com.paweloot.bmi.info.InfoActivity
 import com.paweloot.bmi.R
-import com.paweloot.bmi.main.BmiConstants.BMI_HEIGHT_CM_MAX
-import com.paweloot.bmi.main.BmiConstants.BMI_HEIGHT_FT_MAX
-import com.paweloot.bmi.main.BmiConstants.BMI_HEIGHT_IN_MAX
-import com.paweloot.bmi.main.BmiConstants.BMI_MASS_KG_MAX
-import com.paweloot.bmi.main.BmiConstants.BMI_MASS_LB_MAX
 import com.paweloot.bmi.main.logic.BmiForKgCm
 import com.paweloot.bmi.main.logic.BmiForLbFtIn
 import kotlinx.android.synthetic.main.activity_main.*
@@ -152,20 +147,10 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     }
 
     override fun isInputValid(): Boolean {
-        return if (currentUnits == METRIC_UNITS) {
-            !(mass_edit.text.isEmpty() ||
-                    mass_edit.text.toString().toInt() == 0 ||
-                    mass_edit.text.toString().toInt() > BMI_MASS_KG_MAX ||
-                    height_edit.text.isEmpty() ||
-                    height_edit.text.toString().toInt() == 0 ||
-                    height_edit.text.toString().toInt() > BMI_HEIGHT_CM_MAX)
-        } else !(mass_edit.text.isEmpty() ||
+        return !(mass_edit.text.isEmpty() ||
                 mass_edit.text.toString().toInt() == 0 ||
-                mass_edit.text.toString().toInt() > BMI_MASS_LB_MAX ||
                 height_edit.text.isEmpty() ||
-                height_edit.text.toString().toInt() == 0 ||
-                height_edit.text.toString().toInt() > BMI_HEIGHT_FT_MAX ||
-                height_in_edit.text.toString().toInt() > BMI_HEIGHT_IN_MAX)
+                height_edit.text.toString().toInt() == 0)
     }
 
     override fun displayErrorOnEditText() {
@@ -178,38 +163,6 @@ class MainActivity : AppCompatActivity(), MainContract.View {
             height_edit.text.isEmpty() -> getString(R.string.bmi_main_empty_input_error)
             height_edit.text.toString().toInt() == 0 -> getString(R.string.bmi_main_zero_input_error)
             else -> null
-        }
-
-        val bmiMainErrorMaxValue = getString(R.string.bmi_main_error_max_value)
-        if (currentUnits == METRIC_UNITS) {
-            mass_edit.error = when {
-                mass_edit.text.toString().toInt() > BMI_MASS_KG_MAX ->
-                    bmiMainErrorMaxValue + BMI_MASS_KG_MAX
-                else -> null
-            }
-            height_edit.error = when {
-                height_edit.text.toString().toInt() > BMI_HEIGHT_CM_MAX ->
-                    bmiMainErrorMaxValue + BMI_HEIGHT_CM_MAX
-                else -> null
-            }
-        } else {
-            mass_edit.error = when {
-                mass_edit.text.toString().toInt() > BMI_MASS_LB_MAX ->
-                    bmiMainErrorMaxValue + BMI_MASS_LB_MAX
-                else -> null
-            }
-
-            height_edit.error = when {
-                height_edit.text.toString().toInt() > BMI_HEIGHT_FT_MAX ->
-                    bmiMainErrorMaxValue + BMI_HEIGHT_FT_MAX
-                else -> null
-            }
-
-            height_in_edit.error = when {
-                height_in_edit.text.toString().toInt() > BMI_HEIGHT_IN_MAX ->
-                    bmiMainErrorMaxValue + BMI_HEIGHT_IN_MAX
-                else -> null
-            }
         }
     }
 
