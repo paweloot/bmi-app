@@ -18,7 +18,7 @@
 
     <string name="bmi_main_empty_input_error">This field cannot be empty.</string>
     <string name="bmi_main_zero_input_error">This field cannot be equal to 0.</string>
-    <string name="bmi_main_error_max_value">Max. value is </string>
+    <string name="bmi_main_error_max_value">Max. value is</string>
 
     <!--  Menu  -->
     <string name="bmi_menu_open_history">History</string>
@@ -52,7 +52,7 @@
     <string name="bmi_about_mysterious_wanderer">Mysterious Wanderer</string>
     <string name="bmi_about_info_button_img_description">Forward arrow navigating to Info</string>
 
-    <!--    Info Activity-->
+    <!--    Info Activity -->
     <string name="bmi_info_action_bar_title">Info</string>
     <string name="bmi_info_category_img_description">BMI category image</string>
     <string name="bmi_info_basic_info">
@@ -63,6 +63,7 @@
     </string>
     <string name="bmi_info_category_description">Normal</string>
 
-
-
+    <!-- History Activity -->
+    <string name="bmi_history_sharedpref">com.paweloot.bmi.history</string>
+    <string name="bmi_history_record">history_record_</string>
 </resources>

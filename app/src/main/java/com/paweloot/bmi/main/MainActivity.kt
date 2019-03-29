@@ -1,5 +1,6 @@
 package com.paweloot.bmi.main
 
+import android.content.Context
 import android.content.Intent
 
 import android.os.Bundle
@@ -17,6 +18,7 @@ import com.paweloot.bmi.main.BmiConstants.METRIC_UNITS
 import com.paweloot.bmi.info.InfoActivity
 import com.paweloot.bmi.R
 import com.paweloot.bmi.history.HistoryActivity
+import com.paweloot.bmi.main.logic.Bmi
 import com.paweloot.bmi.main.logic.BmiForKgCm
 import com.paweloot.bmi.main.logic.BmiForLbFtIn
 import kotlinx.android.synthetic.main.activity_main.*
@@ -214,5 +216,17 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         height_in_edit.visibility = View.VISIBLE
         height_in_text.visibility = View.VISIBLE
         height_text.text = getString(R.string.bmi_main_height_ft)
+    }
+
+    override fun saveHistoryRecord() {
+        val bmiData: Bmi = if (currentUnits == METRIC_UNITS) getBmiForKgCm()
+        else getBmiForLbFtIn()
+
+        presenter.saveHistoryRecord(
+            getSharedPreferences(
+                getString(R.string.bmi_history_sharedpref),
+                Context.MODE_PRIVATE
+            ), bmiData
+        )
     }
 }

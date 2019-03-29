@@ -8,6 +8,8 @@ import com.paweloot.bmi.R
 import kotlinx.android.synthetic.main.activity_history.*
 
 class HistoryActivity : AppCompatActivity(), HistoryContract.View {
+    private lateinit var presenter: HistoryContract.Presenter
+
     private lateinit var viewManager: RecyclerView.LayoutManager
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
 
@@ -24,5 +26,10 @@ class HistoryActivity : AppCompatActivity(), HistoryContract.View {
 
         history_recycler_view.layoutManager = viewManager
         history_recycler_view.adapter = viewAdapter
+
+
+
     }
+
+
 }

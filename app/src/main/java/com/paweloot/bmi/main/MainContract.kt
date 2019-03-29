@@ -1,5 +1,8 @@
 package com.paweloot.bmi.main
 
+import android.content.Context
+import android.content.SharedPreferences
+import com.paweloot.bmi.main.logic.Bmi
 import com.paweloot.bmi.main.logic.BmiForKgCm
 import com.paweloot.bmi.main.logic.BmiForLbFtIn
 
@@ -10,6 +13,8 @@ interface MainContract {
         fun onOpenHistoryClick()
         fun onSwitchToMetricUnitsClick()
         fun onSwitchToImperialUnitsClick()
+
+        fun saveHistoryRecord(sharedPref: SharedPreferences, bmiData: Bmi)
     }
 
     interface View {
@@ -27,5 +32,7 @@ interface MainContract {
         fun navigateToHistoryScreen()
         fun switchToMetricUnits()
         fun switchToImperialUnits()
+
+        fun saveHistoryRecord()
     }
 }
