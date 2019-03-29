@@ -25,6 +25,10 @@ class MainPresenter(var view: MainContract.View) : MainContract.Presenter {
         view.navigateToInfoScreen()
     }
 
+    override fun onOpenHistoryClick() {
+        view.navigateToHistoryScreen()
+    }
+
     override fun onSwitchToMetricUnitsClick() {
         view.clearAllFields()
         view.switchToMetricUnits()

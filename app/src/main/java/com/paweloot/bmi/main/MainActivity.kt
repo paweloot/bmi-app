@@ -16,6 +16,7 @@ import com.paweloot.bmi.main.BmiConstants.IMPERIAL_UNITS
 import com.paweloot.bmi.main.BmiConstants.METRIC_UNITS
 import com.paweloot.bmi.info.InfoActivity
 import com.paweloot.bmi.R
+import com.paweloot.bmi.history.HistoryActivity
 import com.paweloot.bmi.main.logic.BmiForKgCm
 import com.paweloot.bmi.main.logic.BmiForLbFtIn
 import kotlinx.android.synthetic.main.activity_main.*
@@ -68,6 +69,9 @@ class MainActivity : AppCompatActivity(), MainContract.View {
             R.id.switch_to_imperial_units -> {
                 presenter.onSwitchToImperialUnitsClick()
                 invalidateOptionsMenu()
+            }
+            R.id.open_history -> {
+                presenter.onOpenHistoryClick()
             }
         }
 
@@ -188,6 +192,10 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         intentInfoActivity.putExtra("bmiCategoryColor", bmi_result_text.currentTextColor)
 
         startActivity(intentInfoActivity)
+    }
+
+    override fun navigateToHistoryScreen() {
+        startActivity(Intent(this, HistoryActivity::class.java))
     }
 
     override fun switchToMetricUnits() {

@@ -20,14 +20,19 @@
 
         <activity android:name=".about.AboutActivity"
                   android:windowSoftInputMode="stateHidden"
-                  android:parentActivityName=".main.MainActivity">
-
+                  android:parentActivityName=".main.MainActivity"
+        >
         </activity>
 
         <activity android:name=".info.InfoActivity"
                   android:windowSoftInputMode="stateHidden"
-                  android:parentActivityName=".main.MainActivity">
+                  android:parentActivityName=".main.MainActivity"
+        >
+        </activity>
 
+        <activity android:name=".history.HistoryActivity"
+                  android:parentActivityName=".main.MainActivity"
+        >
         </activity>
     </application>
 

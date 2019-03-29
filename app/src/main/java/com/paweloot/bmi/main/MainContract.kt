@@ -7,6 +7,7 @@ interface MainContract {
     interface Presenter {
         fun onCalculateButtonClick()
         fun onInfoButtonClick()
+        fun onOpenHistoryClick()
         fun onSwitchToMetricUnitsClick()
         fun onSwitchToImperialUnitsClick()
     }
@@ -23,6 +24,7 @@ interface MainContract {
         fun clearResult()
 
         fun navigateToInfoScreen()
+        fun navigateToHistoryScreen()
         fun switchToMetricUnits()
         fun switchToImperialUnits()
     }

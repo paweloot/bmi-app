@@ -21,6 +21,7 @@
     <string name="bmi_main_error_max_value">Max. value is </string>
 
     <!--  Menu  -->
+    <string name="bmi_menu_open_history">History</string>
     <string name="bmi_menu_switch_to_imperial_units">Switch to imperial units</string>
     <string name="bmi_menu_switch_to_metric_units">Switch to metric units</string>
 
