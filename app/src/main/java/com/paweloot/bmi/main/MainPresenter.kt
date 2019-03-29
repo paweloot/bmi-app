@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class MainPresenter(val view: MainContract.View) : MainContract.Presenter {
+    private var nextHistoryRecordIndex = 1
 
     override fun onCalculateButtonClick() {
         calculateBmiResult()
@@ -32,26 +33,43 @@ class MainPresenter(val view: MainContract.View) : MainContract.Presenter {
 
     override fun saveHistoryRecord(sharedPref: SharedPreferences, bmiData: Bmi) {
         val currentDate: String = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
-        val historyRecord: Set<String>
 
-        historyRecord = if (view.getCurrentUnits() == METRIC_UNITS) {
+        val historyRecord: String
+        if (view.getCurrentUnits() == METRIC_UNITS) {
             val bmiMetricData = bmiData as BmiForKgCm
-            setOf(
-                METRIC_UNITS.toString(), bmiMetricData.mass.toString(),
-                bmiMetricData.height.toString(), currentDate
-            )
+
+            historyRecord = "$METRIC_UNITS/${bmiMetricData.mass}/${bmiMetricData.height}/$currentDate"
         } else {
             val bmiImperialData = bmiData as BmiForLbFtIn
-            setOf(
-                IMPERIAL_UNITS.toString(), bmiImperialData.mass.toString(),
-                bmiImperialData.heightFt.toString(), bmiImperialData.heightIn.toString(), currentDate
-            )
+            historyRecord = "$IMPERIAL_UNITS/${bmiImperialData.mass}/${bmiImperialData.heightFt}" +
+                    "/${bmiImperialData.heightIn}/$currentDate"
         }
 
         with(sharedPref.edit()) {
-            putStringSet("history_record_1", historyRecord)
+            putString("history_record_$nextHistoryRecordIndex", historyRecord)
             apply()
         }
+
+        nextHistoryRecordIndex++
+        if (nextHistoryRecordIndex == 11) nextHistoryRecordIndex = 1
+
+//        val historyRecord: Set<String>
+//
+//        historyRecord = if (view.getCurrentUnits() == METRIC_UNITS) {
+//            val bmiMetricData = bmiData as BmiForKgCm
+//            setOf(
+//                METRIC_UNITS.toString(), bmiMetricData.mass.toString(),
+//                bmiMetricData.height.toString(), currentDate
+//            )
+//        } else {
+//            val bmiImperialData = bmiData as BmiForLbFtIn
+//            setOf(
+//                IMPERIAL_UNITS.toString(), bmiImperialData.mass.toString(),
+//                bmiImperialData.heightFt.toString(), bmiImperialData.heightIn.toString(), currentDate
+//            )
+//        }
+//
+
     }
 
     override fun onInfoButtonClick() {

@@ -20,6 +20,9 @@ class RecyclerAdapter(private val historyData: ArrayList<String>) :
     }
 
     override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
+//        holder.setText(historyData[position])
+        // TODO
+
         holder.setText(historyData[position])
     }
 

@@ -1,5 +1,6 @@
 package com.paweloot.bmi.history
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -17,16 +18,22 @@ class HistoryActivity : AppCompatActivity(), HistoryContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_history)
 
-        val historyData: ArrayList<String> = ArrayList()
-        historyData.add("Bebok")
-        historyData.add("Werka")
+//        val historyData: ArrayList<String> = ArrayList()
+//        historyData.add("Bebok")
+//        historyData.add("Werka")
+
+        presenter = HistoryPresenter(this)
+
+        val sharedPref = getSharedPreferences(
+            getString(R.string.bmi_history_sharedpref),
+            Context.MODE_PRIVATE
+        )
 
         viewManager = LinearLayoutManager(this)
-        viewAdapter = RecyclerAdapter(historyData)
+        viewAdapter = RecyclerAdapter(presenter.fetchHistory(sharedPref))
 
         history_recycler_view.layoutManager = viewManager
         history_recycler_view.adapter = viewAdapter
-
 
 
     }

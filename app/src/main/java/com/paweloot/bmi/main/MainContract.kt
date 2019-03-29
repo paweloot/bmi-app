@@ -1,6 +1,5 @@
 package com.paweloot.bmi.main
 
-import android.content.Context
 import android.content.SharedPreferences
 import com.paweloot.bmi.main.logic.Bmi
 import com.paweloot.bmi.main.logic.BmiForKgCm

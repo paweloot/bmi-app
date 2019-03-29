@@ -3,12 +3,18 @@ package com.paweloot.bmi.history
 import android.content.SharedPreferences
 import com.paweloot.bmi.main.MainContract
 
-class HistoryPresenter(val view: MainContract.View) : HistoryContract.Presenter {
+class HistoryPresenter(val view: HistoryContract.View) : HistoryContract.Presenter {
     private val numberOfHistoryRecords = 10
 
-    override fun fetchHistory(sharedPref: SharedPreferences): ArrayList<Set<String>>? {
-        val fetched: Set<String> = sharedPref.getStringSet("first", null)
+    override fun fetchHistory(sharedPref: SharedPreferences): ArrayList<String> {
+        val history = ArrayList<String>()
+        var historyRecord: String?
 
-        return null
+        for (i in 1..numberOfHistoryRecords) {
+            historyRecord = sharedPref.getString("history_record_$i", null)
+            if (historyRecord != null) history.add(historyRecord)
+        }
+
+        return history
     }
 }
