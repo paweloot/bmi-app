@@ -11,7 +11,9 @@ import com.paweloot.bmi.main.BmiConstants.BMI_OVERWEIGHT_UPPER_BOUND
 import com.paweloot.bmi.main.BmiConstants.BMI_UNDERWEIGHT_UPPER_BOUND
 import kotlinx.android.synthetic.main.activity_info.*
 
-class InfoActivity : AppCompatActivity() {
+class InfoActivity : AppCompatActivity(), InfoContract.View {
+
+    private lateinit var presenter: InfoPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,16 +21,8 @@ class InfoActivity : AppCompatActivity() {
 
         setUpActionBar()
 
-        val intentBundle: Bundle = intent.extras
-        val bmiResult = intentBundle.getCharSequence("bmiResult")
-        val bmiCategory = intentBundle.getCharSequence("bmiCategory")
-        val bmiCategoryColor = intentBundle.getInt("bmiCategoryColor")
-
-        setCategoryImage(bmiResult.toString().toDouble())
-
-        category_text.text = "%s - %s".format(bmiCategory, bmiResult)
-        category_text.setTextColor(bmiCategoryColor)
-
+        presenter = InfoPresenter(this)
+        presenter.onIntentBundleReceived(intent.extras)
     }
 
     private fun setUpActionBar() {
@@ -42,6 +36,13 @@ class InfoActivity : AppCompatActivity() {
         }
 
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun setCategory(bmiResult: Double, bmiCategory: CharSequence, bmiCategoryColor: Int) {
+        setCategoryImage(bmiResult)
+
+        category_text.text = "%s - %s".format(bmiCategory, bmiResult)
+        category_text.setTextColor(bmiCategoryColor)
     }
 
     private fun setCategoryImage(bmi: Double) {
