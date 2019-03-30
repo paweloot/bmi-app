@@ -1,10 +1,13 @@
 package com.paweloot.bmi.history
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.support.v4.app.NavUtils
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.MenuItem
 import com.paweloot.bmi.R
 import kotlinx.android.synthetic.main.activity_history.*
 
@@ -18,25 +21,34 @@ class HistoryActivity : AppCompatActivity(), HistoryContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_history)
 
-//        val historyData: ArrayList<String> = ArrayList()
-//        historyData.add("Bebok")
-//        historyData.add("Werka")
+        setUpActionBar()
 
         presenter = HistoryPresenter(this)
 
-        val sharedPref = getSharedPreferences(
-            getString(R.string.bmi_history_sharedpref),
-            Context.MODE_PRIVATE
-        )
-
         viewManager = LinearLayoutManager(this).apply { stackFromEnd = true; reverseLayout = true }
-        viewAdapter = RecyclerAdapter(presenter.fetchHistory(sharedPref))
+        viewAdapter = RecyclerAdapter(presenter.fetchHistory(fetchSharedPref()))
 
         history_recycler_view.layoutManager = viewManager
         history_recycler_view.adapter = viewAdapter
-
-
     }
 
+    private fun setUpActionBar() {
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setTitle(R.string.bmi_history_action_bar_title)
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.home -> NavUtils.navigateUpFromSameTask(this)
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun fetchSharedPref(): SharedPreferences {
+        return getSharedPreferences(
+            getString(R.string.bmi_history_sharedpref),
+            Context.MODE_PRIVATE
+        )
+    }
 }

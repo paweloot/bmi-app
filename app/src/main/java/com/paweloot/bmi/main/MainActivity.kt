@@ -2,22 +2,18 @@ package com.paweloot.bmi.main
 
 import android.content.Context
 import android.content.Intent
-
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import com.paweloot.bmi.about.AboutActivity
-import com.paweloot.bmi.main.BmiConstants.BMI_NORMAL_UPPER_BOUND
-import com.paweloot.bmi.main.BmiConstants.BMI_OBESE_UPPER_BOUND
-import com.paweloot.bmi.main.BmiConstants.BMI_OVERWEIGHT_UPPER_BOUND
-import com.paweloot.bmi.main.BmiConstants.BMI_UNDERWEIGHT_UPPER_BOUND
-import com.paweloot.bmi.main.BmiConstants.IMPERIAL_UNITS
-import com.paweloot.bmi.main.BmiConstants.METRIC_UNITS
-import com.paweloot.bmi.info.InfoActivity
 import com.paweloot.bmi.R
+import com.paweloot.bmi.about.AboutActivity
+import com.paweloot.bmi.common.BmiConstants.IMPERIAL_UNITS
+import com.paweloot.bmi.common.BmiConstants.METRIC_UNITS
+import com.paweloot.bmi.common.BmiUtils
 import com.paweloot.bmi.history.HistoryActivity
+import com.paweloot.bmi.info.InfoActivity
 import com.paweloot.bmi.main.logic.Bmi
 import com.paweloot.bmi.main.logic.BmiForKgCm
 import com.paweloot.bmi.main.logic.BmiForLbFtIn
@@ -100,34 +96,9 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
     override fun displayBmiResult(bmiResult: Double) {
         bmi_result_text.text = String.format("%.2f", bmiResult)
+        bmi_result_text.setTextColor(getColor(BmiUtils.mapBmiToColor(bmiResult)))
+        bmi_category_text.text = getString(BmiUtils.mapBmiToCategory(bmiResult))
 
-        val categoryResource: Int
-        val resultColorResource: Int
-        when {
-            bmiResult < BMI_UNDERWEIGHT_UPPER_BOUND -> {
-                categoryResource = R.string.bmi_main_underweight
-                resultColorResource = R.color.bmi_underweight
-            }
-            bmiResult < BMI_NORMAL_UPPER_BOUND -> {
-                categoryResource = R.string.bmi_main_normal
-                resultColorResource = R.color.bmi_normal
-            }
-            bmiResult < BMI_OVERWEIGHT_UPPER_BOUND -> {
-                categoryResource = R.string.bmi_main_overweight
-                resultColorResource = R.color.bmi_overweight
-            }
-            bmiResult < BMI_OBESE_UPPER_BOUND -> {
-                categoryResource = R.string.bmi_main_obese
-                resultColorResource = R.color.bmi_obese
-            }
-            else -> {
-                categoryResource = R.string.bmi_main_extremely_obese
-                resultColorResource = R.color.bmi_extremely_obese
-            }
-        }
-
-        bmi_category_text.text = getString(categoryResource)
-        bmi_result_text.setTextColor(getColor(resultColorResource))
         info_button.visibility = View.VISIBLE
     }
 

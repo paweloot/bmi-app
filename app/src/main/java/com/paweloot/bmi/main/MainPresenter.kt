@@ -1,8 +1,9 @@
 package com.paweloot.bmi.main
 
 import android.content.SharedPreferences
-import com.paweloot.bmi.main.BmiConstants.IMPERIAL_UNITS
-import com.paweloot.bmi.main.BmiConstants.METRIC_UNITS
+import com.paweloot.bmi.common.BmiConstants.HISTORY_RECORDS_NUMBER
+import com.paweloot.bmi.common.BmiConstants.IMPERIAL_UNITS
+import com.paweloot.bmi.common.BmiConstants.METRIC_UNITS
 import com.paweloot.bmi.main.logic.Bmi
 import com.paweloot.bmi.main.logic.BmiForKgCm
 import com.paweloot.bmi.main.logic.BmiForLbFtIn
@@ -57,7 +58,7 @@ class MainPresenter(val view: MainContract.View) : MainContract.Presenter {
         val historyRaw = sharedPref.getString("history_data", null)
         val historyData: JSONArray = if (historyRaw == null) JSONArray() else JSONArray(historyRaw)
 
-        if (historyData.length() == 10) historyData.remove(0)
+        if (historyData.length() == HISTORY_RECORDS_NUMBER) historyData.remove(0)
         historyData.put(historyRecord)
 
         with(sharedPref.edit()) {

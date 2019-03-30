@@ -1,4 +1,4 @@
-package com.paweloot.bmi.main
+package com.paweloot.bmi.common
 
 object BmiConstants {
     const val METRIC_UNITS = 0
@@ -8,4 +8,6 @@ object BmiConstants {
     const val BMI_NORMAL_UPPER_BOUND = 24.9
     const val BMI_OVERWEIGHT_UPPER_BOUND = 29.9
     const val BMI_OBESE_UPPER_BOUND = 34.9
+
+    const val HISTORY_RECORDS_NUMBER = 10
 }

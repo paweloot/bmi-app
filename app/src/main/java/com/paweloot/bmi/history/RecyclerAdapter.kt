@@ -6,13 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.paweloot.bmi.R
-import com.paweloot.bmi.main.BmiConstants
-import com.paweloot.bmi.main.BmiConstants.BMI_NORMAL_UPPER_BOUND
-import com.paweloot.bmi.main.BmiConstants.BMI_OBESE_UPPER_BOUND
-import com.paweloot.bmi.main.BmiConstants.BMI_OVERWEIGHT_UPPER_BOUND
-import com.paweloot.bmi.main.BmiConstants.BMI_UNDERWEIGHT_UPPER_BOUND
-import com.paweloot.bmi.main.BmiConstants.IMPERIAL_UNITS
-import com.paweloot.bmi.main.BmiConstants.METRIC_UNITS
+import com.paweloot.bmi.common.BmiConstants.METRIC_UNITS
+import com.paweloot.bmi.common.BmiUtils
 import com.paweloot.bmi.main.logic.BmiForKgCm
 import com.paweloot.bmi.main.logic.BmiForLbFtIn
 import kotlinx.android.synthetic.main.recyclerview_item.view.*
@@ -101,23 +96,13 @@ class RecyclerAdapter(private val historyData: JSONArray) :
 
         fun setBmiResult(bmiResult: String) {
             view.history_bmi_result.text = bmiResult
-            view.history_bmi_result.setTextColor(mapBmiToColor(bmiResult.toDouble()))
+            view.history_bmi_result.setTextColor(
+                context.getColor(BmiUtils.mapBmiToColor(bmiResult.toDouble()))
+            )
         }
 
         private fun appendColon(s: String): String {
             return "$s:"
-        }
-
-        private fun mapBmiToColor(bmiResult: Double): Int {
-            return context.getColor(
-                when {
-                    bmiResult < BMI_UNDERWEIGHT_UPPER_BOUND -> R.color.bmi_underweight
-                    bmiResult < BMI_NORMAL_UPPER_BOUND -> R.color.bmi_normal
-                    bmiResult < BMI_OVERWEIGHT_UPPER_BOUND -> R.color.bmi_overweight
-                    bmiResult < BMI_OBESE_UPPER_BOUND -> R.color.bmi_obese
-                    else -> R.color.bmi_extremely_obese
-                }
-            )
         }
     }
 }

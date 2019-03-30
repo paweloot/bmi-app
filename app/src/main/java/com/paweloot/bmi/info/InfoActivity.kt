@@ -5,10 +5,7 @@ import android.support.v4.app.NavUtils
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import com.paweloot.bmi.R
-import com.paweloot.bmi.main.BmiConstants.BMI_NORMAL_UPPER_BOUND
-import com.paweloot.bmi.main.BmiConstants.BMI_OBESE_UPPER_BOUND
-import com.paweloot.bmi.main.BmiConstants.BMI_OVERWEIGHT_UPPER_BOUND
-import com.paweloot.bmi.main.BmiConstants.BMI_UNDERWEIGHT_UPPER_BOUND
+import com.paweloot.bmi.common.BmiUtils
 import kotlinx.android.synthetic.main.activity_info.*
 
 class InfoActivity : AppCompatActivity(), InfoContract.View {
@@ -45,15 +42,8 @@ class InfoActivity : AppCompatActivity(), InfoContract.View {
         category_text.setTextColor(bmiCategoryColor)
     }
 
-    private fun setCategoryImage(bmi: Double) {
-        val categoryImage: Int = when {
-            bmi < BMI_UNDERWEIGHT_UPPER_BOUND -> R.drawable.bmi_underweight
-            bmi < BMI_NORMAL_UPPER_BOUND -> R.drawable.bmi_normal
-            bmi < BMI_OVERWEIGHT_UPPER_BOUND -> R.drawable.bmi_overweight
-            bmi < BMI_OBESE_UPPER_BOUND -> R.drawable.bmi_obese
-            else -> R.drawable.bmi_extremely_obese
-        }
-
+    private fun setCategoryImage(bmiResult: Double) {
+        val categoryImage: Int = BmiUtils.mapBmiToCategoryImage(bmiResult)
         category_image.setImageResource(categoryImage)
     }
 }

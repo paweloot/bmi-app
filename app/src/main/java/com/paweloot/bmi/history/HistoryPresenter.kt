@@ -4,7 +4,6 @@ import android.content.SharedPreferences
 import org.json.JSONArray
 
 class HistoryPresenter(val view: HistoryContract.View) : HistoryContract.Presenter {
-    private val numberOfHistoryRecords = 10
 
     override fun fetchHistory(sharedPref: SharedPreferences): JSONArray {
         val historyRaw = sharedPref.getString("history_data", null)
