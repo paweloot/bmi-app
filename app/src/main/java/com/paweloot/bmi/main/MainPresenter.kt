@@ -1,12 +1,13 @@
 package com.paweloot.bmi.main
 
 import android.content.SharedPreferences
-import com.paweloot.bmi.R
 import com.paweloot.bmi.main.BmiConstants.IMPERIAL_UNITS
 import com.paweloot.bmi.main.BmiConstants.METRIC_UNITS
 import com.paweloot.bmi.main.logic.Bmi
 import com.paweloot.bmi.main.logic.BmiForKgCm
 import com.paweloot.bmi.main.logic.BmiForLbFtIn
+import org.json.JSONArray
+import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -33,43 +34,36 @@ class MainPresenter(val view: MainContract.View) : MainContract.Presenter {
 
     override fun saveHistoryRecord(sharedPref: SharedPreferences, bmiData: Bmi) {
         val currentDate: String = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+        val historyRecord = JSONObject()
 
-        val historyRecord: String
         if (view.getCurrentUnits() == METRIC_UNITS) {
             val bmiMetricData = bmiData as BmiForKgCm
 
-            historyRecord = "$METRIC_UNITS/${bmiMetricData.mass}/${bmiMetricData.height}/$currentDate"
+            historyRecord.put("units", METRIC_UNITS)
+            historyRecord.put("mass", bmiMetricData.mass)
+            historyRecord.put("height", bmiMetricData.height)
+            historyRecord.put("date", currentDate)
         } else {
             val bmiImperialData = bmiData as BmiForLbFtIn
-            historyRecord = "$IMPERIAL_UNITS/${bmiImperialData.mass}/${bmiImperialData.heightFt}" +
-                    "/${bmiImperialData.heightIn}/$currentDate"
+
+            historyRecord.put("units", IMPERIAL_UNITS)
+            historyRecord.put("mass", bmiImperialData.mass)
+            historyRecord.put("height", bmiImperialData.heightFt)
+            historyRecord.put("heightIn", bmiImperialData.heightIn)
+            historyRecord.put("date", currentDate)
         }
+
+        // fetch current history
+        val historyRaw = sharedPref.getString("history_data", null)
+        val historyData: JSONArray = if (historyRaw == null) JSONArray() else JSONArray(historyRaw)
+
+        if (historyData.length() == 10) historyData.remove(0)
+        historyData.put(historyRecord)
 
         with(sharedPref.edit()) {
-            putString("history_record_$nextHistoryRecordIndex", historyRecord)
+            putString("history_data", historyData.toString())
             apply()
         }
-
-        nextHistoryRecordIndex++
-        if (nextHistoryRecordIndex == 11) nextHistoryRecordIndex = 1
-
-//        val historyRecord: Set<String>
-//
-//        historyRecord = if (view.getCurrentUnits() == METRIC_UNITS) {
-//            val bmiMetricData = bmiData as BmiForKgCm
-//            setOf(
-//                METRIC_UNITS.toString(), bmiMetricData.mass.toString(),
-//                bmiMetricData.height.toString(), currentDate
-//            )
-//        } else {
-//            val bmiImperialData = bmiData as BmiForLbFtIn
-//            setOf(
-//                IMPERIAL_UNITS.toString(), bmiImperialData.mass.toString(),
-//                bmiImperialData.heightFt.toString(), bmiImperialData.heightIn.toString(), currentDate
-//            )
-//        }
-//
-
     }
 
     override fun onInfoButtonClick() {

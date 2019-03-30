@@ -29,7 +29,7 @@ class HistoryActivity : AppCompatActivity(), HistoryContract.View {
             Context.MODE_PRIVATE
         )
 
-        viewManager = LinearLayoutManager(this)
+        viewManager = LinearLayoutManager(this).apply { stackFromEnd = true; reverseLayout = true }
         viewAdapter = RecyclerAdapter(presenter.fetchHistory(sharedPref))
 
         history_recycler_view.layoutManager = viewManager

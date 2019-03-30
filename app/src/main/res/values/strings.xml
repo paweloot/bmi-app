@@ -65,5 +65,4 @@
 
     <!-- History Activity -->
     <string name="bmi_history_sharedpref">com.paweloot.bmi.history</string>
-    <string name="bmi_history_record">history_record_</string>
 </resources>
