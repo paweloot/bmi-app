@@ -13,11 +13,11 @@ import com.paweloot.bmi.main.logic.BmiForLbFtIn
 import kotlinx.android.synthetic.main.recyclerview_item.view.*
 import org.json.JSONArray
 
-class RecyclerAdapter(private val historyData: JSONArray) :
-    RecyclerView.Adapter<RecyclerAdapter.HistoryViewHolder>() {
+class HistoryRecyclerAdapter(private val historyData: JSONArray) :
+    RecyclerView.Adapter<HistoryRecyclerAdapter.HistoryViewHolder>() {
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapter.HistoryViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryRecyclerAdapter.HistoryViewHolder {
         val inflatedView = LayoutInflater.from(parent.context)
             .inflate(R.layout.recyclerview_item, parent, false) as View
 

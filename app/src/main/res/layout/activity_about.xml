@@ -16,7 +16,7 @@
         <ImageView
                 android:id="@+id/paul_image"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="@dimen/bmi_about_img_height"
                 android:contentDescription="@string/bmi_about_paul_img_description"
                 app:srcCompat="@drawable/paul"
         />
@@ -34,11 +34,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/bmi_spacing_small"
-                android:inputType="textPersonName"
                 android:ems="10"
                 android:hint="@string/bmi_about_enter_name_hint"
                 android:textSize="@dimen/bmi_font_large"
-        />
+                android:maxLength="30" android:inputType="text"/>
         <Button
                 android:id="@+id/done_button"
                 android:layout_width="match_parent"

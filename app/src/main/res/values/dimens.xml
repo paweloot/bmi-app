@@ -1,27 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!--    <dimen name="line_spacing_extra">4sp</dimen>-->
-<!--    <dimen name="layout_margin">8dp</dimen>-->
-<!--    <dimen name="edit_text_size">18sp</dimen>-->
-<!--    <dimen name="layout_padding">8dp</dimen>-->
-<!--    <dimen name="forward_button_size">40dp</dimen>-->
-<!--    <dimen name="bmi_category_text_size">20sp</dimen>-->
-<!--    <dimen name="bmi_result_text_size">48sp</dimen>-->
-
-<!--    &lt;!&ndash; Default layout margins  &ndash;&gt;-->
-<!--    <dimen name="bmi_layout_margin_top">8dp</dimen>-->
-<!--    <dimen name="bmi_layout_margin_bottom">8dp</dimen>-->
-<!--    <dimen name="bmi_layout_margin_start_end">8dp</dimen>-->
-
-<!--    <dimen name="bmi_layout_padding_top">8dp</dimen>-->
-<!--    <dimen name="bmi_layout_padding_bottom">8dp</dimen>-->
-
-<!--    &lt;!&ndash; Text dimens &ndash;&gt;-->
-<!--    <dimen name="bmi_default_text_size">14sp</dimen>-->
-<!--    <dimen name="bmi_header_text_size">22sp</dimen>-->
-<!--    <dimen name="bmi_button_text_size">14sp</dimen>-->
-<!--    <dimen name="bmi_text_padding">8dp</dimen>-->
-
     <!-- Font sizes -->
     <dimen name="bmi_font_huge">48sp</dimen>
     <dimen name="bmi_font_larger">28sp</dimen>
@@ -35,10 +13,10 @@
     <dimen name="bmi_spacing_normal">14dp</dimen>
     <dimen name="bmi_spacing_small">8dp</dimen>
     <dimen name="bmi_spacing_tiny">4dp</dimen>
-    <dimen name="bmi_main_img_height">250dp</dimen>
-    
-    <!-- Circular button size -->
-    <dimen name="bmi_circular_button_normal">54dp</dimen>
-    <dimen name="bmi_list_divider_height">1dp</dimen>
 
+    <!-- Other elements sizes -->
+    <dimen name="bmi_circular_button_normal">54dp</dimen>
+    <dimen name="bmi_main_img_height">250dp</dimen>
+    <dimen name="bmi_list_divider_height">1dp</dimen>
+    <dimen name="bmi_about_img_height">200dp</dimen>
 </resources>

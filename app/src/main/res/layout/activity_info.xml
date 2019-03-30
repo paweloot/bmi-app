@@ -41,6 +41,6 @@
             android:textAlignment="center"
             android:textSize="@dimen/bmi_font_larger"
             android:fontFamily="@font/roboto_medium"
-            tools:text="@string/bmi_info_category_description"
+            tools:text="Normal - 24.45"
     />
 </RelativeLayout>

@@ -48,7 +48,7 @@ class MainPresenter(val view: MainContract.View) : MainContract.Presenter {
     }
 
     private fun createHistoryRecordJSONObject(bmiData: Bmi): JSONObject {
-        val currentDate: String = SimpleDateFormat("mm/dd/yyyy", Locale.getDefault()).format(Date())
+        val currentDate: String = SimpleDateFormat("MM/dd/yyyy", Locale.getDefault()).format(Date())
         val historyRecord = JSONObject()
 
         if (view.getCurrentUnits() == METRIC_UNITS) {

@@ -18,7 +18,6 @@
 
     <string name="bmi_main_empty_input_error">This field cannot be empty.</string>
     <string name="bmi_main_zero_input_error">This field cannot be equal to 0.</string>
-    <string name="bmi_main_error_max_value">Max. value is</string>
 
     <!--  Menu  -->
     <string name="bmi_menu_open_history">History</string>
@@ -32,23 +31,25 @@
     <string name="bmi_about_bio">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. \nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        consequat. \n\n
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
         pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
         laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
         dolore
-        magna aliqua. \nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        magna aliqua. \n\n
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
         pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
         laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
         dolore
-        magna aliqua. \nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        magna aliqua. \n\n
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat.
     </string>
     <string name="bmi_about_hello_header">Hello!\nI\'m Paul, what\'s your name?</string>
     <string name="bmi_about_enter_name_hint">Enter your name</string>
     <string name="bmi_about_done">Done</string>
 
-    <string name="bmi_about_hello">Hello</string>
     <string name="bmi_about_mysterious_wanderer">Mysterious Wanderer</string>
     <string name="bmi_about_info_button_img_description">Forward arrow navigating to Info</string>
 
@@ -61,7 +62,6 @@
         The BMI is defined as the body mass divided by the square of the body
         height, and is universally expressed in units of kg/m2, resulting from mass in kilograms and height in metres.
     </string>
-    <string name="bmi_info_category_description">Normal</string>
 
     <!-- History Activity -->
     <string name="bmi_history_sharedpref">com.paweloot.bmi.history</string>
