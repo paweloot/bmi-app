@@ -39,5 +39,6 @@
     
     <!-- Circular button size -->
     <dimen name="bmi_circular_button_normal">54dp</dimen>
+    <dimen name="bmi_list_divider_height">1dp</dimen>
 
 </resources>
