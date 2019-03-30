@@ -13,7 +13,6 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class MainPresenter(val view: MainContract.View) : MainContract.Presenter {
-    private var nextHistoryRecordIndex = 1
 
     override fun onCalculateButtonClick() {
         calculateBmiResult()
@@ -34,7 +33,22 @@ class MainPresenter(val view: MainContract.View) : MainContract.Presenter {
     }
 
     override fun saveHistoryRecord(sharedPref: SharedPreferences, bmiData: Bmi) {
-        val currentDate: String = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+        val historyRecord: JSONObject = createHistoryRecordJSONObject(bmiData)
+
+        val currHistoryRaw = sharedPref.getString("history_data", null)
+        val currHistoryData: JSONArray = if (currHistoryRaw == null) JSONArray() else JSONArray(currHistoryRaw)
+
+        if (currHistoryData.length() == HISTORY_RECORDS_NUMBER) currHistoryData.remove(0)
+        currHistoryData.put(historyRecord)
+
+        with(sharedPref.edit()) {
+            putString("history_data", currHistoryData.toString())
+            apply()
+        }
+    }
+
+    private fun createHistoryRecordJSONObject(bmiData: Bmi): JSONObject {
+        val currentDate: String = SimpleDateFormat("mm/dd/yyyy", Locale.getDefault()).format(Date())
         val historyRecord = JSONObject()
 
         if (view.getCurrentUnits() == METRIC_UNITS) {
@@ -54,17 +68,7 @@ class MainPresenter(val view: MainContract.View) : MainContract.Presenter {
             historyRecord.put("date", currentDate)
         }
 
-        // fetch current history
-        val historyRaw = sharedPref.getString("history_data", null)
-        val historyData: JSONArray = if (historyRaw == null) JSONArray() else JSONArray(historyRaw)
-
-        if (historyData.length() == HISTORY_RECORDS_NUMBER) historyData.remove(0)
-        historyData.put(historyRecord)
-
-        with(sharedPref.edit()) {
-            putString("history_data", historyData.toString())
-            apply()
-        }
+        return historyRecord
     }
 
     override fun onInfoButtonClick() {
