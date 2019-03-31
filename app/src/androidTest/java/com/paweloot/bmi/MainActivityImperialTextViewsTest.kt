@@ -26,7 +26,7 @@ class MainActivityImperialTextViewsTest {
 
     @Test
     fun mainActivityImperialTextViewsTest() {
-        openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext())
+        openActionBarOverflowOrOptionsMenu(getInstrumentation().targetContext)
 
         val appCompatTextView = onView(
             allOf(

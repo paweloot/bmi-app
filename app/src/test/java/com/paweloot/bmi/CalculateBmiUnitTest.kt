@@ -11,7 +11,7 @@ import org.junit.Assert.*
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */
-class ExampleUnitTest {
+class CalculateBmiUnitTest {
     @Test
     fun forValidMetricUnitsDataShouldCalculateBmi() {
         var bmi = BmiForKgCm(65, 170)
